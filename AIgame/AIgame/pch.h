@@ -1,0 +1,15 @@
+/* プリコンパイル済みヘッダー */
+#pragma once
+
+/* 外部参照 */
+#include <DxLib.h>
+#include <vector>
+
+/* Scene */
+#include "SceneBase.h"
+#include "Title.h"
+#include "Play.h"
+#include "Result.h"
+
+/* game */
+#include "Game.h"
