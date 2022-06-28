@@ -31,3 +31,5 @@
 *.out
 *.app
 AIgame/.vs
+AIgame/AIgame/x64/Debug
+*.txt

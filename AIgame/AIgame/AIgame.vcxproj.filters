@@ -4,38 +4,59 @@
     <Filter Include="Scene">
       <UniqueIdentifier>{c221b0b9-7a1f-4dbf-8207-15a5fb354503}</UniqueIdentifier>
     </Filter>
+    <Filter Include="System">
+      <UniqueIdentifier>{170b7e87-3b17-4f7a-88d2-f442c5bdfd65}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="System\FPS">
+      <UniqueIdentifier>{5d6ee308-5766-4cd5-b58c-34e7fcce443f}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Scene\Play">
+      <UniqueIdentifier>{b55811a5-1ceb-464f-ba51-abf42587a068}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Scene\Title">
+      <UniqueIdentifier>{2df1aed2-6041-42dc-845c-ae2621933bb3}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Scene\Result">
+      <UniqueIdentifier>{e096129b-444d-4166-ab78-6776c847828e}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="SceneBase.cpp">
       <Filter>Scene</Filter>
     </ClCompile>
-    <ClCompile Include="Title.cpp">
-      <Filter>Scene</Filter>
-    </ClCompile>
-    <ClCompile Include="Play.cpp">
-      <Filter>Scene</Filter>
-    </ClCompile>
-    <ClCompile Include="Result.cpp">
-      <Filter>Scene</Filter>
-    </ClCompile>
     <ClCompile Include="Game.cpp" />
     <ClCompile Include="main.cpp" />
     <ClCompile Include="pch.cpp" />
+    <ClCompile Include="FPS.cpp">
+      <Filter>System\FPS</Filter>
+    </ClCompile>
+    <ClCompile Include="Play.cpp">
+      <Filter>Scene\Play</Filter>
+    </ClCompile>
+    <ClCompile Include="Title.cpp">
+      <Filter>Scene\Title</Filter>
+    </ClCompile>
+    <ClCompile Include="Result.cpp">
+      <Filter>Scene\Result</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="SceneBase.h">
       <Filter>Scene</Filter>
     </ClInclude>
-    <ClInclude Include="Title.h">
-      <Filter>Scene</Filter>
-    </ClInclude>
-    <ClInclude Include="Play.h">
-      <Filter>Scene</Filter>
-    </ClInclude>
-    <ClInclude Include="Result.h">
-      <Filter>Scene</Filter>
-    </ClInclude>
     <ClInclude Include="Game.h" />
     <ClInclude Include="pch.h" />
+    <ClInclude Include="FPS.h">
+      <Filter>System\FPS</Filter>
+    </ClInclude>
+    <ClInclude Include="Play.h">
+      <Filter>Scene\Play</Filter>
+    </ClInclude>
+    <ClInclude Include="Title.h">
+      <Filter>Scene\Title</Filter>
+    </ClInclude>
+    <ClInclude Include="Result.h">
+      <Filter>Scene\Result</Filter>
+    </ClInclude>
   </ItemGroup>
 </Project>

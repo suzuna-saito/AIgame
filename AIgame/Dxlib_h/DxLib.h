@@ -2,7 +2,7 @@
 // 
 // 		ＤＸライブラリ		ヘッダファイル
 // 
-// 				Ver 3.22c
+// 				Ver 3.21d
 // 
 // -------------------------------------------------------------------------------
 
@@ -12,9 +12,9 @@
 #include "DxCompileConfig.h"
 
 // ＤＸライブラリのバージョン
-#define DXLIB_VERSION 0x322c
-#define DXLIB_VERSION_STR_T _T( "3.22c" )
-#define DXLIB_VERSION_STR_W    L"3.22c"
+#define DXLIB_VERSION 0x321d
+#define DXLIB_VERSION_STR_T _T( "3.21d" )
+#define DXLIB_VERSION_STR_W    L"3.21d"
 
 // 設定 -----------------------------------------------------------------------
 
@@ -43,10 +43,13 @@
 
 #define DX_DEFINE_START
 
-#define MAX_IMAGE_NUM								(0x40000)			// 同時に持てるグラフィックハンドルの最大数( ハンドルエラーチェックのマスクに使用しているので 0x40000 以下の 2 のべき乗にして下さい )
+#define MAX_IMAGE_NUM								(32768)				// 同時に持てるグラフィックハンドルの最大数( ハンドルエラーチェックのマスクに使用しているので 65536 以下の 2 のべき乗にして下さい )
+#define MAX_2DSURFACE_NUM							(32768)				// ２Ｄサーフェスデータの最大数( ハンドルエラーチェックのマスクに使用しているので 65536 以下の 2 のべき乗にして下さい )
+#define MAX_3DSURFACE_NUM							(65536)				// ３Ｄサーフェスデータの最大数( ハンドルエラーチェックのマスクに使用しているので 65536 以下の 2 のべき乗にして下さい )
 #define MAX_IMAGE_DIVNUM							(64)				// 画像分割の最大数
+#define MAX_SURFACE_NUM								(65536)				// サーフェスデータの最大数
 #define MAX_SHADOWMAP_NUM							(8192)				// シャドウマップデータの最大数
-#define MAX_SOFTIMAGE_NUM							(8192)				// 同時に持てるソフトイメージハンドルの最大数( ハンドルエラーチェックのマスクに使用しているので 0x40000 以下の 2 のべき乗にして下さい )
+#define MAX_SOFTIMAGE_NUM							(8192)				// 同時に持てるソフトイメージハンドルの最大数( ハンドルエラーチェックのマスクに使用しているので 65536 以下の 2 のべき乗にして下さい )
 
 #define MAX_SOUND_NUM								(32768)				// 同時に持てるサウンドハンドルの最大数
 #define MAX_SOFTSOUND_NUM							(8192)				// 同時に持てるソフトウエアサウンドハンドルの最大数
@@ -58,7 +61,7 @@
 #define MAX_SOCKET_NUM								(8192)				// 同時に持てる通信ハンドルの最大数
 #define MAX_LIGHT_NUM								(4096)				// 同時に持てるライトハンドルの最大数
 #define MAX_SHADER_NUM								(4096)				// 同時に持てるシェーダーハンドルの最大数
-#define MAX_CONSTANT_BUFFER_NUM						(32768)				// 同時に持てる定数バッファハンドルの最大数
+#define MAX_CONSTANT_BUFFER_NUM						(8192)				// 同時に持てる定数バッファハンドルの最大数
 #define MAX_MODEL_BASE_NUM							(32768)				// 同時に持てる３Ｄモデル基本データハンドルの最大数
 #define MAX_MODEL_NUM								(32768)				// 同時に持てる３Ｄモデルデータハンドルの最大数
 #define MAX_VERTEX_BUFFER_NUM						(16384)				// 同時に持てる頂点バッファハンドルの最大数
@@ -243,24 +246,22 @@
 #define DX_GRAPH_FILTER_LEVEL						(7)				// レベル補正フィルタ
 #define DX_GRAPH_FILTER_TWO_COLOR					(8)				// ２階調化フィルタ
 #define DX_GRAPH_FILTER_GRADIENT_MAP				(9)				// グラデーションマップフィルタ
-#define DX_GRAPH_FILTER_REPLACEMENT					(10)			// 色の置換
-#define DX_GRAPH_FILTER_PREMUL_ALPHA				(11)			// 通常のアルファチャンネル付き画像を乗算済みアルファ画像に変換するフィルタ
-#define DX_GRAPH_FILTER_INTERP_ALPHA				(12)			// 乗算済みα画像を通常のアルファチャンネル付き画像に変換するフィルタ
-#define DX_GRAPH_FILTER_YUV_TO_RGB					(13)			// YUVカラーをRGBカラーに変換するフィルタ
-#define DX_GRAPH_FILTER_Y2UV1_TO_RGB				(14)			// YUVカラーをRGBカラーに変換するフィルタ( UV成分が Y成分の半分・又は４分の１( 横・縦片方若しくは両方 )の解像度しかない場合用 )
-#define DX_GRAPH_FILTER_YUV_TO_RGB_RRA				(15)			// YUVカラーをRGBカラーに変換するフィルタ( 且つ右側半分のRの値をアルファ値として扱う )
-#define DX_GRAPH_FILTER_Y2UV1_TO_RGB_RRA			(16)			// YUVカラーをRGBカラーに変換するフィルタ( UV成分が Y成分の半分・又は４分の１( 横・縦片方若しくは両方 )の解像度しかない場合用 )( 且つ右側半分のRの値をアルファ値として扱う )
-#define DX_GRAPH_FILTER_BICUBIC_SCALE				(17)			// バイキュービックを使用した拡大・縮小フィルタ
-#define DX_GRAPH_FILTER_LANCZOS3_SCALE				(18)			// Lanczos-3を使用した拡大・縮小フィルタ
-#define DX_GRAPH_FILTER_PMA_BRIGHT_CLIP				(19)			// 明るさクリップフィルタ(乗算済みアルファ画像用)
-#define DX_GRAPH_FILTER_PMA_BRIGHT_SCALE			(20)			// 指定の明るさ領域を拡大するフィルタ(乗算済みアルファ画像用)
-#define DX_GRAPH_FILTER_PMA_HSB						(21)			// 色相・彩度・明度フィルタ(乗算済みアルファ画像用)
-#define DX_GRAPH_FILTER_PMA_INVERT					(22)			// 階調の反転フィルタ(乗算済みアルファ画像用)
-#define DX_GRAPH_FILTER_PMA_LEVEL					(23)			// レベル補正フィルタ(乗算済みアルファ画像用)
-#define DX_GRAPH_FILTER_PMA_TWO_COLOR				(24)			// ２階調化フィルタ(乗算済みアルファ画像用)
-#define DX_GRAPH_FILTER_PMA_GRADIENT_MAP			(25)			// グラデーションマップフィルタ(乗算済みアルファ画像用)
-#define DX_GRAPH_FILTER_PMA_REPLACEMENT				(26)			// 色の置換(乗算済みアルファ画像用)
-#define DX_GRAPH_FILTER_NUM							(27)
+#define DX_GRAPH_FILTER_PREMUL_ALPHA				(10)			// 通常のアルファチャンネル付き画像を乗算済みアルファ画像に変換するフィルタ
+#define DX_GRAPH_FILTER_INTERP_ALPHA				(11)			// 乗算済みα画像を通常のアルファチャンネル付き画像に変換するフィルタ
+#define DX_GRAPH_FILTER_YUV_TO_RGB					(12)			// YUVカラーをRGBカラーに変換するフィルタ
+#define DX_GRAPH_FILTER_Y2UV1_TO_RGB				(13)			// YUVカラーをRGBカラーに変換するフィルタ( UV成分が Y成分の半分・又は４分の１( 横・縦片方若しくは両方 )の解像度しかない場合用 )
+#define DX_GRAPH_FILTER_YUV_TO_RGB_RRA				(14)			// YUVカラーをRGBカラーに変換するフィルタ( 且つ右側半分のRの値をアルファ値として扱う )
+#define DX_GRAPH_FILTER_Y2UV1_TO_RGB_RRA			(15)			// YUVカラーをRGBカラーに変換するフィルタ( UV成分が Y成分の半分・又は４分の１( 横・縦片方若しくは両方 )の解像度しかない場合用 )( 且つ右側半分のRの値をアルファ値として扱う )
+#define DX_GRAPH_FILTER_BICUBIC_SCALE				(16)			// バイキュービックを使用した拡大・縮小フィルタ
+#define DX_GRAPH_FILTER_LANCZOS3_SCALE				(17)			// Lanczos-3を使用した拡大・縮小フィルタ
+#define DX_GRAPH_FILTER_PMA_BRIGHT_CLIP				(18)			// 明るさクリップフィルタ(乗算済みアルファ画像用)
+#define DX_GRAPH_FILTER_PMA_BRIGHT_SCALE			(19)			// 指定の明るさ領域を拡大するフィルタ(乗算済みアルファ画像用)
+#define DX_GRAPH_FILTER_PMA_HSB						(20)			// 色相・彩度・明度フィルタ(乗算済みアルファ画像用)
+#define DX_GRAPH_FILTER_PMA_INVERT					(21)			// 階調の反転フィルタ(乗算済みアルファ画像用)
+#define DX_GRAPH_FILTER_PMA_LEVEL					(22)			// レベル補正フィルタ(乗算済みアルファ画像用)
+#define DX_GRAPH_FILTER_PMA_TWO_COLOR				(23)			// ２階調化フィルタ(乗算済みアルファ画像用)
+#define DX_GRAPH_FILTER_PMA_GRADIENT_MAP			(24)			// グラデーションマップフィルタ(乗算済みアルファ画像用)
+#define DX_GRAPH_FILTER_NUM							(25)
 
 // グラフィックブレンドタイプ
 #define DX_GRAPH_BLEND_NORMAL						(0)				// 通常
@@ -308,14 +309,6 @@
 #define DX_RGBA_SELECT_BLEND_G						(5)				// ブレンド画像の緑成分
 #define DX_RGBA_SELECT_BLEND_B						(6)				// ブレンド画像の青成分
 #define DX_RGBA_SELECT_BLEND_A						(7)				// ブレンド画像のα成分
-#define DX_RGBA_SELECT_SRC_INV_R					(8)				// 元画像の赤成分を反転したもの
-#define DX_RGBA_SELECT_SRC_INV_G					(9)				// 元画像の緑成分を反転したもの
-#define DX_RGBA_SELECT_SRC_INV_B					(10)			// 元画像の青成分を反転したもの
-#define DX_RGBA_SELECT_SRC_INV_A					(11)			// 元画像のα成分を反転したもの
-#define DX_RGBA_SELECT_BLEND_INV_R					(12)			// ブレンド画像の赤成分を反転したもの
-#define DX_RGBA_SELECT_BLEND_INV_G					(13)			// ブレンド画像の緑成分を反転したもの
-#define DX_RGBA_SELECT_BLEND_INV_B					(14)			// ブレンド画像の青成分を反転したもの
-#define DX_RGBA_SELECT_BLEND_INV_A					(15)			// ブレンド画像のα成分を反転したもの
 
 // フィルモード
 #define DX_FILL_WIREFRAME							(2)				// ワイヤーフレーム
@@ -434,10 +427,6 @@
 #define DX_SOUNDDATATYPE_MEMNOPRESS_PLUS			(1)				// 圧縮された全データはシステムメモリに格納され、再生しながら逐次解凍され、最終的にすべてサウンドメモリに格納される(その後システムメモリに存在する圧縮データは破棄される)
 #define DX_SOUNDDATATYPE_MEMPRESS					(2)				// 圧縮された全データはシステムメモリに格納され、再生する部分だけ逐次解凍しながらサウンドメモリに格納する(鳴らし終わると解凍したデータは破棄されるので何度も解凍処理が行われる)
 #define DX_SOUNDDATATYPE_FILE						(3)				// 圧縮されたデータの再生する部分だけファイルから逐次読み込み解凍され、サウンドメモリに格納される(鳴らし終わると解凍したデータは破棄されるので何度も解凍処理が行われる)
-
-// サウンドの取得する再生時間タイプ
-#define DX_SOUNDCURRENTTIME_TYPE_LOW_LEVEL			(0)				// 低レベルAPIを使用してより正確な再生時間を取得する
-#define DX_SOUNDCURRENTTIME_TYPE_SOFT				(1)				// APIは使用せず、ソフトウェア処理レベルでの再生時間を取得する
 
 // 読み込み処理のタイプ
 #define DX_READSOUNDFUNCTION_PCM					(1 << 0)		// PCM の読み込み処理
@@ -1710,15 +1699,6 @@ typedef struct tagPOINTDATA
 	int						pal ;							// パラメータ
 } POINTDATA, *LPPOINTDATA ;
 
-// 立方体データ型
-typedef struct tagCUBEDATA
-{
-	VECTOR					Pos1 ;							// 座標1
-	VECTOR					Pos2 ;							// 座標2
-	COLOR_U8				DifColor ;						// ディフューズカラー
-	COLOR_U8				SpcColor ;						// スペキュラカラー
-} CUBEDATA, *LPCUBEDATA ;
-
 #ifndef DX_NOTUSE_DRAWFUNCTION
 
 // イメージフォーマットデータ
@@ -2733,7 +2713,6 @@ extern	int			DrawTriangle3D(  VECTOR   Pos1,   VECTOR   Pos2, VECTOR   Pos3,    
 extern	int			DrawTriangle3DD( VECTOR_D Pos1,   VECTOR_D Pos2, VECTOR_D Pos3,                                unsigned int Color, int FillFlag ) ;				// ３Ｄの三角形を描画する
 extern	int			DrawCube3D(      VECTOR   Pos1,   VECTOR   Pos2,                            unsigned int DifColor, unsigned int SpcColor, int FillFlag ) ;		// ３Ｄの立方体を描画する
 extern	int			DrawCube3DD(     VECTOR_D Pos1,   VECTOR_D Pos2,                            unsigned int DifColor, unsigned int SpcColor, int FillFlag ) ;		// ３Ｄの立方体を描画する
-extern	int			DrawCubeSet3D(   CUBEDATA *CubeDataArray, int Num, int FillFlag ) ;																				// ３Ｄの立方体の集合を描画する
 extern	int			DrawSphere3D(    VECTOR   CenterPos,                  float  r, int DivNum, unsigned int DifColor, unsigned int SpcColor, int FillFlag ) ;		// ３Ｄの球体を描画する
 extern	int			DrawSphere3DD(   VECTOR_D CenterPos,                  double r, int DivNum, unsigned int DifColor, unsigned int SpcColor, int FillFlag ) ;		// ３Ｄの球体を描画する
 extern	int			DrawCapsule3D(   VECTOR   Pos1,   VECTOR   Pos2,      float  r, int DivNum, unsigned int DifColor, unsigned int SpcColor, int FillFlag ) ;		// ３Ｄのカプセルを描画する
@@ -2796,8 +2775,7 @@ extern	int			DrawRectModiGraphF(       float x1, float y1, float x2, float y2, f
 extern	int			DrawBlendGraph(           int x, int y, int GrHandle, int TransFlag,                 int BlendGraph, int BorderParam, int BorderRange ) ;									// ブレンド画像と合成して画像を等倍描画する
 extern	int			DrawBlendGraphPos(        int x, int y, int GrHandle, int TransFlag, int bx, int by, int BlendGraph, int BorderParam, int BorderRange ) ;									// ブレンド画像と合成して画像を等倍描画する( ブレンド画像の起点座標を指定する引数付き )
 
-extern	int			DrawCircleGauge(          int   CenterX, int   CenterY, double Percent, int GrHandle, double StartPercent = 0.0 , double Scale = 1.0 , int ReverseX = FALSE , int ReverseY = FALSE ) ;										// 円グラフ的な描画を行う( GrHandle の画像の上下左右の端は透過色にしておく必要があります )
-extern	int			DrawCircleGaugeF(         float CenterX, float CenterY, double Percent, int GrHandle, double StartPercent = 0.0 , double Scale = 1.0 , int ReverseX = FALSE , int ReverseY = FALSE ) ;										// 円グラフ的な描画を行う( GrHandle の画像の上下左右の端は透過色にしておく必要があります )( 座標指定が float 版 )
+extern	int			DrawCircleGauge(          int CenterX, int CenterY, double Percent, int GrHandle, double StartPercent = 0.0 , double Scale = 1.0 , int ReverseX = FALSE , int ReverseY = FALSE ) ;										// 円グラフ的な描画を行う( GrHandle の画像の上下左右の端は透過色にしておく必要があります )
 
 extern	int			DrawGraphToZBuffer(       int X, int Y,                                                                 int GrHandle, int WriteZMode /* DX_ZWRITE_MASK 等 */ ) ;														// Ｚバッファに対して画像の等倍描画
 extern	int			DrawTurnGraphToZBuffer(   int x, int y,                                                                 int GrHandle, int WriteZMode /* DX_ZWRITE_MASK 等 */ ) ;														// Ｚバッファに対して画像の左右反転描画
@@ -2867,7 +2845,6 @@ extern	int			GetWriteAlphaChannelFlag(			void ) ;														// 描画先のアルフ
 extern	int			CheckSeparateAlphaBlendEnable(		void ) ;														// 描画先のアルファチャンネルの内容を書き換えないことができるかどうかを取得する( TRUE:書き換えないことができる  FALSE:書き換えないことができない )
 extern	int			SetIgnoreDrawGraphColor(			int EnableFlag ) ;												// 描画する画像のＲＧＢ成分を無視するかどうかを指定する( EnableFlag:この機能を使うかどうか( TRUE:使う  FALSE:使わない( デフォルト ) ) )
 extern	int			SetMaxAnisotropy(					int MaxAnisotropy ) ;											// 最大異方性値を設定する
-extern	int			GetMaxAnisotropy(					void ) ;														// 最大異方性値を取得する
 extern	int			SetUseLarge3DPositionSupport(		int UseFlag ) ;													// ３Ｄ処理で使用する座標値が 10000000.0f などの大きな値になっても描画の崩れを小さく抑える処理を使用するかどうかを設定する、DxLib_Init の呼び出し前でのみ使用可能( TRUE:描画の崩れを抑える処理を使用する( CPU負荷が上がります )　　FALSE:描画の崩れを抑える処理は使用しない( デフォルト ) )
 
 extern	int			SetUseZBufferFlag(					int Flag ) ;													// Ｚバッファを使用するかどうかを設定する( ２Ｄと３Ｄ描画に影響 )( TRUE:Ｚバッファを使用する  FALSE:Ｚバッファを使用しない( デフォルト ) )
@@ -3163,8 +3140,6 @@ extern	int			SetShaderConstantBuffer(		int SConstBufHandle, int TargetShader /* 
 
 // フィルター関係関数
 #ifndef DX_NON_FILTER
-extern	int			SetGraphFilterBltBlendMode( int BlendMode /* DX_BLENDMODE_ALPHA など */ ) ;												// GraphFilterBlt や GraphBlendBlt の結果を転送先に転送する際のブレンドモードを設定する( 現状で対応しているのは DX_BLENDMODE_NOBLEND と DX_BLENDMODE_ALPHA のみ )
-
 extern	int			GraphFilter(         int    GrHandle,                                                                                                               int FilterType /* DX_GRAPH_FILTER_GAUSS 等 */ , ... ) ;		// 画像にフィルター処理を行う
 extern	int			GraphFilterBlt(      int SrcGrHandle, int DestGrHandle,                                                                                             int FilterType /* DX_GRAPH_FILTER_GAUSS 等 */ , ... ) ;		// 画像のフィルター付き転送を行う
 extern	int			GraphFilterRectBlt(  int SrcGrHandle, int DestGrHandle, int SrcX1, int SrcY1, int SrcX2, int SrcY2, int DestX,  int DestY,                          int FilterType /* DX_GRAPH_FILTER_GAUSS 等 */ , ... ) ;		// 画像のフィルター付き転送を行う( 矩形指定 )
@@ -3178,7 +3153,6 @@ extern	int			GraphFilterRectBlt(  int SrcGrHandle, int DestGrHandle, int SrcX1, 
 //		int			GraphFilter( int GrHandle, int FilterType = DX_GRAPH_FILTER_LEVEL, int Min = 変換元の下限値( 0 ～ 255 ), int Max = 変換元の上限値( 0 ～ 255 ), int Gamma = ガンマ値( 100 でガンマ補正無し、0 とそれ以下の値は不可 ), int AfterMin = 変換後の最低値( 0 ～ 255 ), int AfterMax = 変換後の最大値( 0 ～ 255 ) ) ;
 //		int			GraphFilter( int GrHandle, int FilterType = DX_GRAPH_FILTER_TWO_COLOR, int Threshold = 閾値( 0 ～ 255 ), unsigned int LowColor = 閾値より値が低かったピクセルの変換後の色値( GetColor で取得する ), int LowAlpha = 閾値より値が低かったピクセルの変換後のα値( 0 ～ 255 ), unsigned int HighColor = 閾値より値が高かったピクセルの変換後の色値( GetColor で取得する ), int HighAlpha = 閾値より値が高かったピクセルの変換後のα値( 0 ～ 255 ) ) ;
 //		int			GraphFilter( int GrHandle, int FilterType = DX_GRAPH_FILTER_GRADIENT_MAP, int MapGrHandle = グラデーションマップのグラフィックハンドル( 元画像の輝度からグラデーションマップ画像の x 座標を算出しますので縦幅は1dotでもＯＫ ), int Reverse = グラデーションマップ左右反転フラグ( TRUE : グラデーションマップを左右反転して使う  FALSE : 左右反転しない ) ) ;
-//		int			GraphFilter( int GrHandle, int FilterType = DX_GRAPH_FILTER_REPLACEMENT, int TargetR, int TargetG, int TargetB, int TargetA = 置換対象の色( 0～255 ), int R, int G, int B, int A = 置換後の色( 0～255 ) ) ;
 //		int			GraphFilter( int GrHandle, int FilterType = DX_GRAPH_FILTER_PREMUL_ALPHA ) ;			// 通常のアルファチャンネル付き画像を乗算済みアルファ画像に変換するフィルタ
 //		int			GraphFilter( int GrHandle, int FilterType = DX_GRAPH_FILTER_INTERP_ALPHA ) ;			// 乗算済みα画像を通常のアルファチャンネル付き画像に変換するフィルタ
 //		int			GraphFilter( int GrHandle, int FilterType = DX_GRAPH_FILTER_YUV_TO_RGB ) ;				// YUVカラーをRGBカラーに変換するフィルタ
@@ -3229,7 +3203,7 @@ extern 	int			GetMovieStateToGraph(				int GraphHandle ) ;															// 動画
 extern	int			SetMovieVolumeToGraph(				int Volume, int GraphHandle ) ;												// 動画ファイルの音量を設定する(0～10000)
 extern	int			ChangeMovieVolumeToGraph(			int Volume, int GraphHandle ) ;												// 動画ファイルの音量を設定する(0～255)
 extern	const BASEIMAGE* GetMovieBaseImageToGraph(		int GraphHandle, int *ImageUpdateFlag = NULL , int ImageUpdateFlagSetOnly = FALSE ) ;	// 動画ファイルの基本イメージデータを取得する( ImageUpdateFlag に int 型変数のアドレスを渡すと、イメージが更新された場合は 1 が、更新されていない場合は 0 が格納されます、 ImageUpdateFlagSetOnly を TRUE にすると戻り値の BASEIMAGE は有効な画像データではなくなりますが、BASEIMAGE の更新処理が行われませんので、ImageUpdateFlag を利用して画像が更新されたかどうかだけをチェックしたい場合は TRUE にしてください )
-extern	int			GetMovieTotalFrameToGraph(			int GraphHandle ) ;															// 動画ファイルの総フレーム数を得る( Ogg Theora と mp4 でのみ有効 )
+extern	int			GetMovieTotalFrameToGraph(			int GraphHandle ) ;															// 動画ファイルの総フレーム数を得る( Ogg Theora でのみ有効 )
 extern	int			TellMovieToGraph(					int GraphHandle ) ;															// 動画ファイルの再生位置を取得する(ミリ秒単位)
 extern	int			TellMovieToGraphToFrame(			int GraphHandle ) ;															// 動画ファイルの再生位置を取得する(フレーム単位)
 extern	int			SeekMovieToGraphToFrame(			int GraphHandle, int Frame ) ;												// 動画ファイルの再生位置を設定する(フレーム単位)
@@ -4678,12 +4652,6 @@ extern	int			SetNextPlay3DVelocitySoundMem(       VECTOR Velocity,              
 // 特殊関数
 extern	int			GetMP3TagInfo(           const TCHAR *FileName,                        TCHAR *TitleBuffer, size_t TitleBufferBytes, TCHAR *ArtistBuffer, size_t ArtistBufferBytes, TCHAR *AlbumBuffer, size_t AlbumBufferBytes, TCHAR *YearBuffer, size_t YearBufferBytes, TCHAR *CommentBuffer, size_t CommentBufferBytes, TCHAR *TrackBuffer, size_t TrackBufferBytes, TCHAR *GenreBuffer, size_t GenreBufferBytes, int *PictureGrHandle ) ;		// MP3ファイルのタグ情報を取得する
 extern	int			GetMP3TagInfoWithStrLen( const TCHAR *FileName, size_t FileNameLength, TCHAR *TitleBuffer, size_t TitleBufferBytes, TCHAR *ArtistBuffer, size_t ArtistBufferBytes, TCHAR *AlbumBuffer, size_t AlbumBufferBytes, TCHAR *YearBuffer, size_t YearBufferBytes, TCHAR *CommentBuffer, size_t CommentBufferBytes, TCHAR *TrackBuffer, size_t TrackBufferBytes, TCHAR *GenreBuffer, size_t GenreBufferBytes, int *PictureGrHandle ) ;		// MP3ファイルのタグ情報を取得する
-#ifndef DX_NON_OGGVORBIS
-extern	int			GetOggCommentNum(           const TCHAR *FileName                        ) ;																																	// Oggファイルのコメント情報の数を取得する
-extern	int			GetOggCommentNumWithStrLen( const TCHAR *FileName, size_t FileNameLength ) ;																																	// Oggファイルのコメント情報の数を取得する
-extern	int			GetOggComment(              const TCHAR *FileName,                        int CommentIndex, TCHAR *CommentNameBuffer, size_t CommentNameBufferBytes, TCHAR *CommentBuffer, size_t CommentBufferBytes ) ;		// Oggファイルのコメント情報を取得する
-extern	int			GetOggCommentWithStrLen(    const TCHAR *FileName, size_t FileNameLength, int CommentIndex, TCHAR *CommentNameBuffer, size_t CommentNameBufferBytes, TCHAR *CommentBuffer, size_t CommentBufferBytes ) ;		// Oggファイルのコメント情報を取得する
-#endif // DX_NON_OGGVORBIS
 						
 
 // 設定関係関数
@@ -4703,8 +4671,6 @@ extern	int			SetDisableReadSoundFunctionMask(     int Mask ) ;																		
 extern	int			GetDisableReadSoundFunctionMask(     void ) ;																					// 使用しないサウンドデータ読み込み処理のマスクを取得する( DX_READSOUNDFUNCTION_PCM 等 )
 extern	int			SetEnableSoundCaptureFlag(           int Flag ) ;																				// サウンドキャプチャを前提とした動作をするかどうかを設定する
 extern	int			SetUseOldVolumeCalcFlag(             int Flag ) ;																				// ChangeVolumeSoundMem, ChangeNextPlayVolumeSoundMem, ChangeMovieVolumeToGraph の音量計算式を Ver3.10c以前のものを使用するかどうかを設定する( TRUE:Ver3.10c以前の計算式を使用  FALSE:3.10d以降の計算式を使用( デフォルト ) )
-extern	int			SetSoundCurrentTimeType(             int Type /* DX_SOUNDCURRENTTIME_TYPE_LOW_LEVEL など */ ) ;									// GetSoundCurrentTime などを使用した場合に取得できる再生時間のタイプを設定する
-extern	int			GetSoundCurrentTimeType(             void ) ;																					// GetSoundCurrentTime などを使用した場合に取得できる再生時間のタイプを取得する
 
 extern	int			SetCreate3DSoundFlag(                     int Flag ) ;																			// 次に作成するサウンドハンドルを３Ｄサウンド用にするかどうかを設定する( TRUE:３Ｄサウンド用にする  FALSE:３Ｄサウンド用にしない( デフォルト ) )
 extern	int			Set3DSoundOneMetre(                       float Distance ) ;																	// ３Ｄ空間の１メートルに相当する距離を設定する、DxLib_Init を呼び出す前でのみ呼び出し可能( デフォルト:1.0f )
@@ -5046,8 +5012,6 @@ extern	int			MV1SetMaterialSpcPower( 			int MHandle, int MaterialIndex, float Po
 extern	float		MV1GetMaterialSpcPower( 			int MHandle, int MaterialIndex ) ;										// 指定のマテリアルのスペキュラの強さを取得する
 extern	int			MV1SetMaterialDifMapTexture(		int MHandle, int MaterialIndex, int TexIndex ) ;						// 指定のマテリアルでディフューズマップとして使用するテクスチャを指定する
 extern	int			MV1GetMaterialDifMapTexture(		int MHandle, int MaterialIndex ) ;										// 指定のマテリアルでディフューズマップとして使用されているテクスチャのインデックスを取得する
-extern	int			MV1SetMaterialSubDifMapTexture(		int MHandle, int MaterialIndex, int TexIndex ) ;						// 指定のマテリアルでサブディフューズマップとして使用するテクスチャを指定する
-extern	int			MV1GetMaterialSubDifMapTexture(		int MHandle, int MaterialIndex ) ;										// 指定のマテリアルでサブディフューズマップとして使用されているテクスチャのインデックスを取得する
 extern	int			MV1SetMaterialSpcMapTexture(		int MHandle, int MaterialIndex, int TexIndex ) ;						// 指定のマテリアルでスペキュラマップとして使用するテクスチャを指定する
 extern	int			MV1GetMaterialSpcMapTexture(		int MHandle, int MaterialIndex ) ;										// 指定のマテリアルでスペキュラマップとして使用されているテクスチャのインデックスを取得する
 extern	int			MV1GetMaterialNormalMapTexture(		int MHandle, int MaterialIndex ) ;										// 指定のマテリアルで法線マップとして使用されているテクスチャのインデックスを取得する
@@ -5310,7 +5274,7 @@ extern	const TCHAR *Live2D_Model_GetHitAreaName(						int Live2DModelHandle, int
 extern	const TCHAR *Live2D_Model_GetPhysicsFileName(					int Live2DModelHandle ) ;																// Live2D のモデルの物理演算設定ファイルの名前を取得する
 extern	const TCHAR *Live2D_Model_GetPoseFileName(						int Live2DModelHandle ) ;																// Live2D のモデルのパーツ切り替え設定ファイルの名前を取得する
 extern	int			Live2D_Model_GetExpressionCount(					int Live2DModelHandle ) ;																// Live2D のモデルの表情設定ファイルの数を取得する
-extern	const TCHAR *Live2D_Model_GetExpressionName(					int Live2DModelHandle, int index ) ;													// Live2D のモデルの表情設定ファイルを識別するIDを取得する
+extern	const TCHAR *Live2D_Model_GetExpressionName(					int Live2DModelHandle, int index ) ;													// Live2D のモデルの表情設定ファイルを識別する名前（別名）を取得する
 extern	const TCHAR *Live2D_Model_GetExpressionFileName(				int Live2DModelHandle, int index ) ;													// Live2D のモデルの表情設定ファイルの名前を取得する
 extern	int			Live2D_Model_GetMotionGroupCount(					int Live2DModelHandle ) ;																// Live2D のモデルのモーショングループの数を取得する
 extern	const TCHAR *Live2D_Model_GetMotionGroupName(					int Live2DModelHandle, int index ) ;													// Live2D のモデルのモーショングループの名前を取得する

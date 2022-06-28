@@ -2,7 +2,7 @@
 //
 //		ＤＸライブラリ　コンパイルコンフィグヘッダファイル
 //
-//				Ver 3.22c
+//				Ver 3.21d
 //
 // ----------------------------------------------------------------------------
 
@@ -280,9 +280,6 @@
 	#endif
 	#ifndef DX_NOTUSE_DRAWFUNCTION
 		#define DX_NOTUSE_DRAWFUNCTION
-	#endif
-	#ifndef DX_NON_LIVE2D_CUBISM4
-		#define DX_NON_LIVE2D_CUBISM4
 	#endif
 #endif // DX_NON_GRAPHICS
 

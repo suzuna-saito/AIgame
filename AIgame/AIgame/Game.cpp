@@ -1,58 +1,27 @@
 #include "pch.h"
 
 Game::Game()
-	: MWidth(1920)
+	: MWidth(650)
 	, MHeight(1080)
-	, mIsRunningFlag(true)
-	, mFps(nullptr)
-	, mInputSystem(nullptr)
+	, MColorBitNum(16)
 	, mNowScene(nullptr)
 	, mTmpScene(nullptr)
+	, mIsRunningFlag(true)
 {
 }
 
 bool Game::Initialize()
 {
-	//// SDLの初期化
-	//// 返り値の整数が0でなかったら
-	//if (SDL_Init(SDL_INIT_VIDEO | SDL_INIT_AUDIO |
-	//	SDL_INIT_GAMECONTROLLER | SDL_INIT_HAPTIC) != 0)
-	//{
-	//	printf("SDLを初期化できません : %s", SDL_GetError());
-	//	return false;
-	//}
+	// 画面モードのセット
+	SetGraphMode(MWidth, MHeight, MColorBitNum);
+	ChangeWindowMode(TRUE);
 
-	//入力管理クラスの初期化
-	mInputSystem = new InputSystem();
-	if (!mInputSystem->Initialize())
+	// DXライブラリの初期化
+	if (DxLib_Init() == -1)
 	{
-		printf("インプットシステムの初期化に失敗しました");
+		// エラーが起きたら直ちに終了
 		return false;
 	}
-
-	//// ウィンドウの作成
-	//if (!mWindow)
-	//{
-	//	printf("ウィンドウの作成に失敗しました : %s", SDL_GetError());
-	//	return false;
-	}
-
-	//// レンダラーの初期化
-	//Renderer::CreateInstance();
-	//if (!Renderer::Initialize())
-	//{
-	//	printf("レンダラーの初期化に失敗しました\n");
-	//	Renderer::DeleteInstance();
-	//	return false;
-	//}
-
-	// FPS管理クラスの初期化
-	mFps = new FPS();
-
-	// オブジェクト管理クラスの作成
-	ActorManager::CreateInstance();
-	// カメラクラスの作成
-	Camera::CreateInstance();
 
 	return true;
 }
@@ -65,86 +34,51 @@ void Game::GameLoop()
 		ProcessInput();
 
 		// 現在のシーンの入力処理
-		//mNowScene->Input(mInputSystem->GetState());
+		mNowScene->Input();
 
 		// 現在のシーンの更新処理
 		mTmpScene = mNowScene->Update();
 
-		// シーンの切り替えが発生した？
+		// シーンの切り替えが発生したら
 		if (mTmpScene != mNowScene)
 		{
-			// 現在のシーンの解放
-			delete mNowScene;
+			delete mNowScene;           // 現在のシーンの解放
 
-			//// いらないアクターを削除する
-			//ActorManager::RemoveActor();
-
-			// 現在実行中のシーンの切り替え
-			mNowScene = mTmpScene;
+			mNowScene = mTmpScene;      // 現在実行中のシーンの切り替え
 			continue;
 		}
 
+		// 画面を初期化する
+		ClearDrawScreen();
+
+		// 現在のシーンを描画
+		mNowScene->Draw();
+
+		// 裏画面の内容を表画面に反映させる
+		ScreenFlip();
+
 		// ゲームの更新処理
 		UpdateGame();
-		// 現在のシーンの描画処理
-		Renderer::Draw();
-		// FPSの更新処理
-		mFps->Update();
 	}
 }
 
 void Game::Termination()
 {
-	// データのアンロード
-	UnloadData();
-
-	// 実体を一つしか持たないクラスの解放処理
-
-	// クラスの解放処理
-	delete mFps;
-	delete mInputSystem;
-
+	// 現在のシーンの解放
+	delete mNowScene;
+	// DXライブラリの後始末
+	DxLib_End();
 }
 
 void Game::ProcessInput()
 {
-	//mInputSystem->PrepareForUpdate();
-
-	//SDL_Event event;
-	//// キューにイベントがあれば繰り返す
-	//while (SDL_PollEvent(&event))
-	//{
-	//	switch (event.type)
-	//	{
-	//	case SDL_QUIT:
-	//		mIsRunningFlag = false;
-	//		break;
-	//	default:
-	//		break;
-	//	}
-	//}
-
-	//mInputSystem->Update();
-
-	// 現在の状態が格納された配列
-	//const InputState& state = mInputSystem->GetState();
-
-	// ESCキーか、@@@コントローラーの終了が押されたら
-	/*if (state.m_keyboard.GetKeyState(SDL_SCANCODE_ESCAPE) == ButtonState::eReleased ||
-		SceneBase::mIsScene == SceneBase::Scene::eEnd)
+	// Escキーが押されるか、ウィンドウが閉じられたら
+	if (ProcessMessage() == -1 || CheckHitKey(KEY_INPUT_ESCAPE) == 1)
 	{
-		mIsRunningFlag = false;
-	}*/
-
-	// アクターの入力状態の更新
+		mIsRunningFlag = false;   // ゲームループフラグをfalseにする
+	}
 }
 
 void Game::UpdateGame()
 {
-	// アクターの更新処理
-}
-
-void Game::UnloadData()
-{
-	// 描画しているデータを削除
 }

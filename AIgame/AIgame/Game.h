@@ -18,36 +18,23 @@ public:
 	void GameLoop();
 	// 終了処理
 	void Termination();
-
 private:
 	// 入力関連の処理
 	void ProcessInput();
 	// ゲームの更新処理
 	void UpdateGame();
-	// ロードしたデータの解放
-	void UnloadData();
 
-	// ウィンドウの横幅
-	const int MWidth;
-	// ウィンドウの縦幅
-	const int MHeight;
+	const int MWidth;       // 画面の横幅
+	const int MHeight;      // 画面の縦幅
+	const int MColorBitNum; // カラービット数
 
-	// ゲームを続行するかどうか
-	bool mIsRunningFlag;
+	class SceneBase* mNowScene;   // 現在のシーン
+	class SceneBase* mTmpScene;   // ひとつ前のシーン
 
-	// 現在のシーン
-	SceneBase* mNowScene;
-	// ひとつ前のシーン
-	SceneBase* mTmpScene;
-
-	//FPS計測クラス
-	FPS* mFps;
-
-	// 入力管理クラス
-	InputSystem* mInputSystem;
+	bool mIsRunningFlag;    // ゲームを続行するかどうか
 
 public: // ゲッター、セッター
 	// 最初のシーンをセット
 	void SetFirstScene(SceneBase* _firstScene) { mNowScene = _firstScene; }
-};
 
+};
