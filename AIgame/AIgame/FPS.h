@@ -21,10 +21,11 @@ private:
 	const int MSetFps;             // フレームレートの最高値
 	const int MOneFrameTickCount;  // 1フレームにかける時間
 	
-	int mFpsCount;            // フレームのカウンター
-	int mFrameStartTickTime;  // FPSの計算を始めた時の時間
-	int mFps;                 // 計算したフレームレート
 	int mBeforeTickCount;     // 前のフレームのかかった時間
 	float mDeltaTime;         // 現在のフレームのかかった時間
+
+public:   // ゲッター、セッター
+	// 現在のフレームにかかった時間(float型)
+	float GetDeltaTime() { return mDeltaTime; }
 };
 

@@ -5,9 +5,6 @@
 #include <DxLib.h>
 #include <vector>
 
-/* game */
-#include "Game.h"
-
 // System
 #include "FPS.h"
 
@@ -16,3 +13,6 @@
 #include "Title.h"
 #include "Play.h"
 #include "Result.h"
+
+/* game */
+#include "Game.h"

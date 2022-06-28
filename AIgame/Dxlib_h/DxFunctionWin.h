@@ -2,7 +2,7 @@
 // 
 // 		‚c‚wƒ‰ƒCƒuƒ‰ƒŠ		Windowsê—pŠÖ”ƒvƒƒgƒ^ƒCƒvéŒ¾—pƒwƒbƒ_ƒtƒ@ƒCƒ‹
 // 
-// 				Ver 3.21d
+// 				Ver 3.22c
 // 
 // -------------------------------------------------------------------------------
 
@@ -38,7 +38,8 @@ extern	int			GetWindowMaxSizeFlag(			void ) ;												// ƒƒCƒ“ƒEƒCƒ“ƒhƒE‚ªÅ
 extern	int			GetActiveFlag(					void ) ;												// GetWindowActiveFlag ‚Ì•Ê–¼ŠÖ”
 extern	HWND		GetMainWindowHandle(			void ) ;												// ƒƒCƒ“ƒEƒCƒ“ƒhƒE‚ÌƒEƒCƒ“ƒhƒEƒnƒ“ƒhƒ‹‚ğæ“¾‚·‚é
 extern	int			GetWindowModeFlag(				void ) ;												// ƒEƒCƒ“ƒhƒEƒ‚[ƒh‚Å‹N“®‚µ‚Ä‚¢‚é‚©‚Ç‚¤‚©‚ğæ“¾‚·‚é( –ß‚è’l  TRUE:ƒEƒCƒ“ƒhƒEƒ‚[ƒh  FALSE:ƒtƒ‹ƒXƒNƒŠ[ƒ“ƒ‚[ƒh )
-extern	int			GetDefaultState(				int *SizeX, int *SizeY, int *ColorBitDepth, int *RefreshRate = NULL , int *LeftTopX = NULL , int *LeftTopY = NULL , int *PixelSizeX = NULL , int *PixelSizeY = NULL ) ;		// ‹N“®‚ÌƒfƒXƒNƒgƒbƒv‚Ì‰æ–Êî•ñ‚ğæ“¾‚·‚é( SizeX:ƒfƒXƒNƒgƒbƒv‚Ì‰¡‰ğ‘œ“x‚ğŠi”[‚·‚é•Ï”‚Ìƒ|ƒCƒ“ƒ^  SizeY:c‰ğ‘œ“x‚ğŠi”[‚·‚é•Ï”‚Ìƒ|ƒCƒ“ƒ^  ColorBitDepth:‰æ–ÊƒJƒ‰[ƒrƒbƒg”‚ğŠi”[‚·‚é•Ï”‚Ìƒ|ƒCƒ“ƒ^  RefreshRate:ƒfƒXƒNƒgƒbƒv‚ÌƒŠƒtƒŒƒbƒVƒ…ƒŒ[ƒg‚ğŠi”[‚·‚é•Ï”‚Ìƒ|ƒCƒ“ƒ^  LeftTopX:ƒfƒXƒNƒgƒbƒv‚Ì¶ã‚wÀ•W‚ğŠi”[‚·‚é•Ï”‚Ìƒ|ƒCƒ“ƒ^  LeftTopY:ƒfƒXƒNƒgƒbƒv‚Ì¶ã‚xÀ•W‚ğŠi”[‚·‚é•Ï”‚Ìƒ|ƒCƒ“ƒ^  PixelSizeX:OS‚ÌŠg‘å—¦İ’è‚Ì‰e‹¿‚ğó‚¯‚È‚¢ƒfƒXƒNƒgƒbƒv‚Ì‰¡‰ğ‘œ“x‚ğŠi”[‚·‚é•Ï”‚Ìƒ|ƒCƒ“ƒ^  PixelSizeY:OS‚ÌŠg‘å—¦İ’è‚Ì‰e‹¿‚ğó‚¯‚È‚¢ƒfƒXƒNƒgƒbƒv‚Ìc‰ğ‘œ“x‚ğŠi”[‚·‚é•Ï”‚Ìƒ|ƒCƒ“ƒ^ )
+extern	int			GetDefaultState(				int *SizeX, int *SizeY, int *ColorBitDepth, int *RefreshRate = NULL , int *LeftTopX = NULL , int *LeftTopY = NULL , int *PixelSizeX = NULL , int *PixelSizeY = NULL , int *XDpi = NULL , int *YDpi = NULL ) ;		// ‹N“®‚ÌƒfƒXƒNƒgƒbƒv‚Ì‰æ–Êî•ñ‚ğæ“¾‚·‚é( SizeX:ƒfƒXƒNƒgƒbƒv‚Ì‰¡‰ğ‘œ“x‚ğŠi”[‚·‚é•Ï”‚Ìƒ|ƒCƒ“ƒ^  SizeY:c‰ğ‘œ“x‚ğŠi”[‚·‚é•Ï”‚Ìƒ|ƒCƒ“ƒ^  ColorBitDepth:‰æ–ÊƒJƒ‰[ƒrƒbƒg”‚ğŠi”[‚·‚é•Ï”‚Ìƒ|ƒCƒ“ƒ^  RefreshRate:ƒfƒXƒNƒgƒbƒv‚ÌƒŠƒtƒŒƒbƒVƒ…ƒŒ[ƒg‚ğŠi”[‚·‚é•Ï”‚Ìƒ|ƒCƒ“ƒ^  LeftTopX:ƒfƒXƒNƒgƒbƒv‚Ì¶ã‚wÀ•W‚ğŠi”[‚·‚é•Ï”‚Ìƒ|ƒCƒ“ƒ^  LeftTopY:ƒfƒXƒNƒgƒbƒv‚Ì¶ã‚xÀ•W‚ğŠi”[‚·‚é•Ï”‚Ìƒ|ƒCƒ“ƒ^  PixelSizeX:OS‚ÌŠg‘å—¦İ’è‚Ì‰e‹¿‚ğó‚¯‚È‚¢ƒfƒXƒNƒgƒbƒv‚Ì‰¡‰ğ‘œ“x‚ğŠi”[‚·‚é•Ï”‚Ìƒ|ƒCƒ“ƒ^  PixelSizeY:OS‚ÌŠg‘å—¦İ’è‚Ì‰e‹¿‚ğó‚¯‚È‚¢ƒfƒXƒNƒgƒbƒv‚Ìc‰ğ‘œ“x‚ğŠi”[‚·‚é•Ï”‚Ìƒ|ƒCƒ“ƒ^  XDpi:X²‚ÌDPI  YDpi:Y²‚ÌDPI )
+extern	int			GetMonitorDpi(					int *XDpi, int *YDpi, int MonitorIndex = -1 ) ;			// ƒ‚ƒjƒ^[‚ÌDPI‚ğæ“¾‚·‚é
 extern	int			GetNoActiveState(				int ResetFlag = TRUE ) ;								// ƒƒCƒ“ƒEƒCƒ“ƒhƒE‚ª”ñƒAƒNƒeƒBƒu‚É‚È‚èAˆ—‚ªˆê’â~‚µ‚Ä‚¢‚½‚©‚Ç‚¤‚©‚ğæ“¾‚·‚é(ˆø” ResetFlag=TRUE:ó‘Ô‚ğƒŠƒZƒbƒg FALSE:ó‘Ô‚ğƒŠƒZƒbƒg‚µ‚È‚¢    –ß‚è’l: 0=ˆê’â~‚Í‚µ‚Ä‚¢‚È‚¢  1=ˆê’â~‚µ‚Ä‚¢‚½ )
 extern	int			GetMouseDispFlag(				void ) ;												// ƒ}ƒEƒXƒ|ƒCƒ“ƒ^‚ğ•\¦‚·‚é‚©‚Ç‚¤‚©‚Ìİ’è‚ğæ“¾‚·‚é( –ß‚è’l  TRUE:•\¦‚·‚é  FALSE:•\¦‚µ‚È‚¢ )
 extern	int			GetAlwaysRunFlag(				void ) ;												// ƒƒCƒ“ƒEƒCƒ“ƒhƒE‚ª”ñƒAƒNƒeƒBƒu‚É‚È‚Á‚Ä‚àˆ—‚ğÀs‚µ‘±‚¯‚é‚©‚Ç‚¤‚©‚Ìİ’è‚ğæ“¾‚·‚é( TRUE:Às‚·‚é  FALSE:’â~‚·‚é )
@@ -56,6 +57,7 @@ extern	int			GetWindowSize(					int *Width, int *Height ) ;								// ƒƒCƒ“ƒEƒC
 extern	int			GetWindowEdgeWidth(				int *LeftWidth, int *RightWidth, int *TopWidth, int *BottomWidth ) ;	// ƒEƒCƒ“ƒhƒE‚Ìã‰º¶‰E‚Ì‰‚Ì•‚ğæ“¾‚·‚é
 extern	int			GetWindowPosition(				int *x, int *y ) ;										// ƒƒCƒ“ƒEƒCƒ“ƒhƒE‚ÌƒfƒXƒNƒgƒbƒvã‚Ì¶ã’[À•W‚ğæ“¾‚·‚é( ˜g‚àŠÜ‚ß‚é )
 extern	int			GetWindowUserCloseFlag(			int StateResetFlag = FALSE ) ;							// ƒƒCƒ“ƒEƒCƒ“ƒhƒE‚Ì•Â‚¶‚éƒ{ƒ^ƒ“‚ª‰Ÿ‚³‚ê‚½‚©‚Ç‚¤‚©‚ğæ“¾‚·‚é
+extern	int			CheckWindowMaximizeButtonInput(	int StateResetFlag = TRUE ) ;							// ƒƒCƒ“ƒEƒCƒ“ƒhƒE‚ÌÅ‘å‰»ƒ{ƒ^ƒ“‚ª‰Ÿ‚³‚ê‚½‚©‚Ç‚¤‚©‚ğæ“¾‚·‚éASetWindowMaximizeButtonBehavior( 1 ); ‚ªÀs‚³‚ê‚Ä‚¢‚éê‡‚Ì‚İ—LŒø‚ÈŠÖ”( StateResetFlag  TRUE = ‰Ÿ‚³‚ê‚½ó‘Ô‚ğƒŠƒZƒbƒg‚·‚é   FALSE = ‰Ÿ‚³‚ê‚½ó‘Ô‚ğƒŠƒZƒbƒg‚µ‚È‚¢ )
 extern	int			GetNotDrawFlag(					void ) ;												// ‚c‚wƒ‰ƒCƒuƒ‰ƒŠ‚Ì•`‰æ‹@”\‚ğg‚¤‚©‚Ç‚¤‚©‚Ìİ’è‚ğæ“¾‚·‚é
 extern	int			GetPaintMessageFlag(			void ) ;												// WM_PAINT ƒƒbƒZ[ƒW‚ª—ˆ‚½‚©‚Ç‚¤‚©‚ğæ“¾‚·‚é(–ß‚è’l  TRUE:WM_PAINTƒƒbƒZ[ƒW‚ª—ˆ‚½(ˆê“xæ“¾‚·‚é‚ÆˆÈŒãAÄ‚Ñ WM_PAINTƒƒbƒZ[ƒW‚ª—ˆ‚é‚Ü‚Å FALSE ‚ª•Ô‚Á‚Ä‚­‚é‚æ‚¤‚É‚È‚é)  FALSE:WM_PAINT ƒƒbƒZ[ƒW‚Í—ˆ‚Ä‚¢‚È‚¢)
 extern	int			GetValidHiPerformanceCounter(	void ) ;												// ƒpƒtƒH[ƒ}ƒ“ƒXƒJƒEƒ“ƒ^‚ª—LŒø‚©‚Ç‚¤‚©‚ğæ“¾‚·‚é(–ß‚è’l  TRUE:—LŒø  FALSE:–³Œø)
@@ -88,6 +90,7 @@ extern	int			SetWindowMinSize(						int MinWidth, int MinHeight ) ;													
 extern	int			SetWindowPosition(						int x, int y ) ;																	// ƒƒCƒ“ƒEƒCƒ“ƒhƒE‚ÌˆÊ’u‚ğİ’è‚·‚é( ˜g‚àŠÜ‚ß‚½¶ãÀ•W )
 extern	int			SetSysCommandOffFlag(					int Flag , const TCHAR *HookDllPath = NULL                                ) ;		// ƒ^ƒXƒNƒXƒCƒbƒ`‚ğ—LŒø‚É‚·‚é‚©‚Ç‚¤‚©‚ğİ’è‚·‚é
 extern	int			SetSysCommandOffFlagWithStrLen(			int Flag , const TCHAR *HookDllPath = NULL , size_t HookDllPathLength = 0 ) ;		// ƒ^ƒXƒNƒXƒCƒbƒ`‚ğ—LŒø‚É‚·‚é‚©‚Ç‚¤‚©‚ğİ’è‚·‚é
+extern	int			SetWindowMaximizeButtonBehavior(		int BehaviorType ) ;																// ƒƒCƒ“ƒEƒCƒ“ƒhƒE‚ÌÅ‘å‰»ƒ{ƒ^ƒ“‚ª‰Ÿ‚³‚ê‚½‚Æ‚«‚Ì‹““®‚ğİ’è‚·‚é( BehaviorType 0=•W€“®ì 1=•W€“®ì‚Ís‚í‚¸AÅ‘å‰»ƒ{ƒ^ƒ“‚ª‰Ÿ‚³‚ê‚½‚©‚Ç‚¤‚©‚Í CheckWindowMaximizeButtonInput ‚Å”»’è‚·‚é )
 extern	int			SetHookWinProc(							WNDPROC WinProc ) ;																	// ƒƒCƒ“ƒEƒCƒ“ƒhƒE‚Ö‚ÌƒƒbƒZ[ƒW‚ğƒtƒbƒN‚·‚éƒEƒCƒ“ƒhƒEƒvƒ[ƒWƒƒ‚ğ“o˜^‚·‚é
 extern	int			SetUseHookWinProcReturnValue(			int UseFlag ) ;																		// SetHookWinProc ‚Åİ’è‚µ‚½ƒEƒCƒ“ƒhƒEƒvƒ[ƒWƒƒ‚Ì–ß‚è’l‚ğg—p‚·‚é‚©‚Ç‚¤‚©‚ğİ’è‚·‚éASetHookWinProc ‚Åİ’è‚µ‚½ƒEƒCƒ“ƒhƒEƒvƒ[ƒWƒƒ‚Ì’†‚Å‚Ì‚İg—p‰Â”\( UseFlag TRUE:–ß‚è’l‚ğg—p‚µ‚ÄA‚c‚wƒ‰ƒCƒuƒ‰ƒŠ‚ÌƒEƒCƒ“ƒhƒEƒvƒ[ƒWƒƒ‚Ìˆ—‚Ís‚í‚È‚¢  FALSE:–ß‚è’l‚Íg—p‚¹‚¸AƒEƒCƒ“ƒhƒEƒvƒ[ƒWƒƒ‚©‚ço‚½ŒãA‚c‚wƒ‰ƒCƒuƒ‰ƒŠ‚ÌƒEƒCƒ“ƒhƒEƒvƒ[ƒWƒƒ‚Ìˆ—‚ğs‚¤ )
 extern	int			SetDoubleStartValidFlag(				int Flag ) ;																		// ‚c‚wƒ‰ƒCƒuƒ‰ƒŠ‚ğg—p‚µ‚½ƒ\ƒtƒg‚Ì“ñd‹N“®‚ğ‰Â”\‚É‚·‚é‚©‚Ç‚¤‚©‚Ìİ’è‚ğs‚¤( TRUE:‰Â”\‚É‚·‚é  FALSE:•s‰Â”\‚É‚·‚é( ƒfƒtƒHƒ‹ƒg ) )
@@ -114,6 +117,7 @@ extern	int			SetUseBackBufferTransColorFlag(			int Flag ) ;																		// 
 extern	int			SetUseUpdateLayerdWindowFlag(			int Flag ) ;																		// UpdateLayerdWindowForBaseImage ‚â UpdateLayerdWindowForSoftImage ‚ğg—p‚·‚é‚©‚Ç‚¤‚©‚ğİ’è‚·‚é( TRUE:g—p‚·‚é  FALSE:g—p‚µ‚È‚¢ )
 extern	int			SetResourceModule(						HMODULE ResourceModule ) ;															// ƒŠƒ\[ƒX‚ğ“Ç‚İ‚ŞÛ‚Ég—p‚·‚éƒ‚ƒWƒ…[ƒ‹‚ğİ’è‚·‚é( NULL ‚ğw’è‚·‚é‚Æ‰Šúó‘Ô‚É–ß‚è‚Ü‚·AƒfƒtƒHƒ‹ƒg‚Å‚Í NULL )
 extern	int			SetUseDxLibWM_PAINTProcess(				int Flag ) ;																		// WM_PAINT ƒƒbƒZ[ƒW‚ª—ˆ‚½Û‚Éw‚c‚wƒ‰ƒCƒuƒ‰ƒŠ‚Ì WM_PAINTƒƒbƒZ[ƒW‚ª—ˆ‚½Û‚Ìˆ—x‚ğs‚¤‚©‚Ç‚¤‚©‚ğİ’è‚·‚é( •ÊƒXƒŒƒbƒh‚Å•`‰æˆ—‚ğs‚¤ê‡‚È‚Ç‚Åg—p )
+extern	int			SetWindows10_WM_CHAR_CancelTime(		int MilliSecond ) ;																	// Windows10 ‚Å WM_CHAR ‚Å’ZŠÔ‚É˜A‘±‚µ‚Ä“¯‚¶•¶š‚ª“ü—Í‚³‚ê‚½ê‡‚Ì–³Œøˆµ‚¢‚É‚·‚éŠÔ‚ğİ’è‚·‚é( MilliSecond ‚Ìƒ~ƒŠ•bˆÈ“à‚É˜A‘±‚µ‚Ä“¯‚¶•¶š‚ª“ü—Í‚³‚ê‚½ê‡‚É–³Œø‚É‚·‚éAMilliSecond ‚Ì’l‚ğƒ}ƒCƒiƒX‚É‚·‚é‚ÆƒfƒtƒHƒ‹ƒg‚Ìİ’è‚É–ß‚é )
 
 // ƒhƒ‰ƒbƒO•ƒhƒƒbƒv‚³‚ê‚½ƒtƒ@ƒCƒ‹ŠÖŒW
 extern	int			SetDragFileValidFlag(		int Flag ) ;																	// ƒtƒ@ƒCƒ‹‚ÌƒƒCƒ“ƒEƒCƒ“ƒhƒE‚Ö‚Ìƒhƒ‰ƒbƒO•ƒhƒƒbƒv‹@”\‚ğ—LŒø‚É‚·‚é‚©‚Ç‚¤‚©‚Ìƒtƒ‰ƒO‚ğƒZƒbƒg‚·‚é
@@ -257,7 +261,8 @@ extern	int			SetUseTSFFlag( int UseFlag ) ;											// ‚h‚l‚d‚ÌŠ¿š•ÏŠ·Œó•â•\
 
 extern	int			SetKeyExclusiveCooperativeLevelFlag(	int Flag ) ;															// DirectInput ‚ÌƒL[ƒ{[ƒh‚Ì‹¦’²ƒŒƒxƒ‹‚ğ”r‘¼ƒŒƒxƒ‹‚É‚·‚é‚©‚Ç‚¤‚©‚ğİ’è‚·‚é( TRUE:”r‘¼ƒŒƒxƒ‹‚É‚·‚é  FALSE:•W€ƒŒƒxƒ‹‚É‚·‚é( ƒfƒtƒHƒ‹ƒg ) )ADxLib_Init ‚ÌŒÄ‚Ño‚µ‘O‚Å‚Ì‚İÀs‰Â”\@
 extern	int			SetKeyboardNotDirectInputFlag(			int Flag ) ;															// ƒL[ƒ{[ƒh‚Ì“ü—Íˆ—‚É DirectInput ‚ğg‚í‚È‚¢‚©‚Ç‚¤‚©‚ğİ’è‚·‚é( TRUE:DirectInput ‚ğg‚í‚¸AWindows•W€‹@”\‚ğg—p‚·‚é@@FALSE:DirectInput ‚ğg—p‚·‚é )
-extern	int			SetUseDirectInputFlag(					int Flag ) ;															// “ü—Íˆ—‚É DirectInput ‚ğg—p‚·‚é‚©‚Ç‚¤‚©‚ğİ’è‚·‚é( TRUE:DirectInput ‚ğg—p‚·‚é@@FALSE:DirectInput ‚ğg‚í‚¸AWindows•W€‹@”\‚ğg—p‚·‚é )
+extern	int			SetUseDirectInputFlag(					int UseFlag ) ;															// “ü—Íˆ—‚É DirectInput ‚ğg—p‚·‚é‚©‚Ç‚¤‚©‚ğİ’è‚·‚é( TRUE:DirectInput ‚ğg—p‚·‚é@@FALSE:DirectInput ‚ğg‚í‚¸AWindows•W€‹@”\‚ğg—p‚·‚é )
+extern	int			SetDirectInputMouseMode(				int Mode ) ;															// ƒ}ƒEƒX‚Ì“ü—Íˆ—‚É DirectInput ‚ğg—p‚·‚éê‡‚Ì“®ìƒ‚[ƒh‚ğİ’è‚·‚é( 0:ƒEƒBƒ“ƒhƒE‚ªƒAƒNƒeƒBƒu‚Èê‡‚Ì‚İ DirectInput ‚ğg—p‚·‚é  1:ƒEƒBƒ“ƒhƒE‚ÌƒAƒNƒeƒBƒuó‘Ô‚ÉŠÖŒW‚È‚­ DirectInput ‚ğg—p‚·‚é )
 extern	int			SetUseXInputFlag(						int Flag ) ;															// Xbox360ƒRƒ“ƒgƒ[ƒ‰‚Ì“ü—Íˆ—‚É XInput ‚ğg—p‚·‚é‚©‚Ç‚¤‚©‚ğİ’è‚·‚é( TRUE:XInput ‚ğg—p‚·‚é( ƒfƒtƒHƒ‹ƒg )@@FALSE:XInput ‚ğg—p‚µ‚È‚¢ )
 extern	int			SetUseXboxControllerDirectInputFlag(	int Flag ) ;															// Xbox360ƒRƒ“ƒgƒ[ƒ‰‚â Xbox OneƒRƒ“ƒgƒ[ƒ‰‚ğ DirectInputƒRƒ“ƒgƒ[ƒ‰‚Æ‚µ‚Ä‚àŒŸo‚·‚é‚©‚Ç‚¤‚©‚ğİ’è‚·‚é( TRUE:DirectInputƒRƒ“ƒgƒ[ƒ‰‚Æ‚µ‚Ä‚àŒŸo‚·‚é  FALSE:DirectInputƒRƒ“ƒgƒ[ƒ‰‚Æ‚µ‚Ä‚ÍŒŸo‚µ‚È‚¢(ƒfƒtƒHƒ‹ƒg) )ADxLib_Init ‚ÌŒÄ‚Ño‚µ‘O‚Å‚Ì‚İÀs‰Â”\
 extern	int			GetJoypadGUID(							int PadIndex, GUID *GuidInstanceBuffer, GUID *GuidProductBuffer = NULL ) ;	// ƒWƒ‡ƒCƒpƒbƒh‚Ì‚f‚tI‚c‚ğ“¾‚é
@@ -316,6 +321,7 @@ extern	int			SetUseDirect3D11WARPDriver(						int Flag ) ;									// D3D_DRIVER
 extern	int			SetUseDirect3DVersion(							int Version /* DX_DIRECT3D_9 ‚È‚Ç */ ) ;		// g—p‚·‚é Direct3D ‚Ìƒo[ƒWƒ‡ƒ“‚ğİ’è‚·‚éADxLib_Init ŒÄ‚Ño‚µ‚Ì‘O‚Å‚Ì‚İg—p‰Â”\@
 extern	int			GetUseDirect3DVersion(							void ) ;										// g—p‚µ‚Ä‚¢‚é Direct3D ‚Ìƒo[ƒWƒ‡ƒ“‚ğæ“¾‚·‚é( DX_DIRECT3D_9 ‚È‚Ç )
 extern	int			GetUseDirect3D11FeatureLevel(					void ) ;										// g—p‚µ‚Ä‚¢‚é Direct3D11 ‚Ì FeatureLevel ( DX_DIRECT3D_11_FEATURE_LEVEL_9_1 “™ )‚ğæ“¾‚·‚é( –ß‚è’l@-1FƒGƒ‰[@-1ˆÈŠOFFeature Level )
+extern	int			SetUseDirect3D11AdapterIndex(					int Index ) ;									// g—p‚·‚éƒOƒ‰ƒtƒBƒbƒNƒXƒfƒoƒCƒX‚ÌƒAƒ_ƒvƒ^[‚ÌƒCƒ“ƒfƒbƒNƒX‚ğİ’è‚·‚é
 extern	int			SetUseDirectDrawFlag(							int Flag ) ;									// ( “¯Œø‰Ê‚ÌSetUseSoftwareRenderModeFlag ‚ğg—p‚µ‚Ä‰º‚³‚¢ )DirectDraw‚ğg—p‚·‚é‚©‚Ç‚¤‚©‚ğİ’è‚·‚é
 extern	int			SetUseGDIFlag(									int Flag ) ;									// GDI•`‰æ‚ğg—p‚·‚é‚©‚Ç‚¤‚©‚ğİ’è‚·‚é
 extern	int			GetUseGDIFlag(									void ) ;										// GDI•`‰æ‚ğg—p‚·‚é‚©‚Ç‚¤‚©‚ğæ“¾‚·‚é

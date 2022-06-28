@@ -28,10 +28,12 @@ private:
 	const int MHeight;      // 画面の縦幅
 	const int MColorBitNum; // カラービット数
 
+	bool mIsRunningFlag;    // ゲームを続行するかどうか
+
 	class SceneBase* mNowScene;   // 現在のシーン
 	class SceneBase* mTmpScene;   // ひとつ前のシーン
 
-	bool mIsRunningFlag;    // ゲームを続行するかどうか
+	class FPS* mFps;              // FPS計測クラス
 
 public: // ゲッター、セッター
 	// 最初のシーンをセット

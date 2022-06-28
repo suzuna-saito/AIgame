@@ -4,9 +4,10 @@ Game::Game()
 	: MWidth(650)
 	, MHeight(1080)
 	, MColorBitNum(16)
+	, mIsRunningFlag(true)
 	, mNowScene(nullptr)
 	, mTmpScene(nullptr)
-	, mIsRunningFlag(true)
+	, mFps(nullptr)
 {
 }
 
@@ -22,6 +23,9 @@ bool Game::Initialize()
 		// エラーが起きたら直ちに終了
 		return false;
 	}
+
+	// FPS管理クラスの初期化
+	mFps = new FPS();
 
 	return true;
 }
@@ -59,13 +63,17 @@ void Game::GameLoop()
 
 		// ゲームの更新処理
 		UpdateGame();
+		// FPSの更新処理
+		mFps->Update();
 	}
 }
 
 void Game::Termination()
 {
-	// 現在のシーンの解放
+	// クラスの解放処理
 	delete mNowScene;
+	delete mFps;
+
 	// DXライブラリの後始末
 	DxLib_End();
 }
@@ -81,4 +89,5 @@ void Game::ProcessInput()
 
 void Game::UpdateGame()
 {
+	float deltaTime = mFps->GetDeltaTime();
 }
