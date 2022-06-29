@@ -3,6 +3,8 @@
 Result::Result()
 	: SceneBase(SceneBase::Scene::eResult)
 {
+	new Background();
+
 }
 
 Result::~Result()

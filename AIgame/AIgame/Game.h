@@ -36,6 +36,7 @@ private:
 	class SceneBase* mTmpScene;   // ひとつ前のシーン
 
 	class FPS* mFps;              // FPS計測クラス
+	class Image* mImage;          // 画像データを管理しているクラス
 
 public: // ゲッター、セッター
 	// 最初のシーンをセット

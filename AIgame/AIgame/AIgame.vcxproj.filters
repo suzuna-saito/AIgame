@@ -22,6 +22,9 @@
     <Filter Include="UI">
       <UniqueIdentifier>{732116fe-dfc4-476f-b489-283f2b8acaab}</UniqueIdentifier>
     </Filter>
+    <Filter Include="UI\Background">
+      <UniqueIdentifier>{b5f84ca8-c0c6-41ea-96b3-b7b9c131c5da}</UniqueIdentifier>
+    </Filter>
     <Filter Include="UI\Image">
       <UniqueIdentifier>{f9b92f2e-6fb1-4f75-a036-a30682e1cdc3}</UniqueIdentifier>
     </Filter>
@@ -54,6 +57,9 @@
     <ClCompile Include="Image.cpp">
       <Filter>UI\Image</Filter>
     </ClCompile>
+    <ClCompile Include="Background.cpp">
+      <Filter>UI\Background</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="SceneBase.h">
@@ -81,6 +87,9 @@
     </ClInclude>
     <ClInclude Include="Image.h">
       <Filter>UI\Image</Filter>
+    </ClInclude>
+    <ClInclude Include="Background.h">
+      <Filter>UI\Background</Filter>
     </ClInclude>
   </ItemGroup>
 </Project>

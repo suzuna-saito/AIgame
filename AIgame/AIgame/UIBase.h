@@ -1,7 +1,7 @@
 #pragma once
 
 /* UIの基底クラス */
-class UIBase
+class UIBase : public Image
 {
 public:
 	/// <summary>
@@ -15,7 +15,7 @@ public:
 	/// <summary>
 	/// UIの更新処理
 	/// </summary>
-	virtual void Update(float _deltaTime) = 0;
+	virtual void Update(float _deltaTime) {};
 
 	/// <summary>
 	/// UIの描画
@@ -27,8 +27,7 @@ protected:
 	std::vector<int> mImages;  // すべてのUI画像データを格納
 
 private:
-	// 各自のUIを生成したシーン
-	SceneBase::Scene mDirthplaceScene;
+	SceneBase::Scene mDirthplaceScene;  // 各自のUIを生成したシーン
 
 public: // ゲッター、セッター
 	// 各UIが生成された時のシーンを返す

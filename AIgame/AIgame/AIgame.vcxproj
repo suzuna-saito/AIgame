@@ -159,6 +159,7 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
+    <ClCompile Include="Background.cpp" />
     <ClCompile Include="FPS.cpp" />
     <ClCompile Include="Game.cpp" />
     <ClCompile Include="Image.cpp" />
@@ -186,6 +187,7 @@
     <ClCompile Include="UIManager.cpp" />
   </ItemGroup>
   <ItemGroup>
+    <ClInclude Include="Background.h" />
     <ClInclude Include="FPS.h" />
     <ClInclude Include="Game.h" />
     <ClInclude Include="Image.h" />

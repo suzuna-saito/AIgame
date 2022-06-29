@@ -3,6 +3,7 @@
 Title::Title()
 	: SceneBase(SceneBase::Scene::eTitle)
 {
+	new Background();
 }
 
 Title::~Title()
