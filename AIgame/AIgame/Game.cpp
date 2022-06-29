@@ -27,6 +27,9 @@ bool Game::Initialize()
 	// FPS管理クラスの初期化
 	mFps = new FPS();
 
+	// 実態を一つしか持たないクラスの作成
+	UIManager::CreateInstance();  // UI管理クラス
+
 	return true;
 }
 
@@ -48,23 +51,25 @@ void Game::GameLoop()
 		{
 			delete mNowScene;           // 現在のシーンの解放
 
+			UIManager::DeleteUI();      // いらないUIを削除する
+
 			mNowScene = mTmpScene;      // 現在実行中のシーンの切り替え
 			continue;
 		}
-
-		// 画面を初期化する
-		ClearDrawScreen();
-
-		// 現在のシーンを描画
-		mNowScene->Draw();
-
-		// 裏画面の内容を表画面に反映させる
-		ScreenFlip();
 
 		// ゲームの更新処理
 		UpdateGame();
 		// FPSの更新処理
 		mFps->Update();
+
+		// 画面を初期化する
+		ClearDrawScreen();
+
+		// 現在のシーンを描画
+		DrawGame();
+
+		// 裏画面の内容を表画面に反映させる
+		ScreenFlip();
 	}
 }
 
@@ -90,4 +95,8 @@ void Game::ProcessInput()
 void Game::UpdateGame()
 {
 	float deltaTime = mFps->GetDeltaTime();
+}
+
+void Game::DrawGame()
+{
 }

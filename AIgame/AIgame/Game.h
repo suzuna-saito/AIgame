@@ -23,6 +23,8 @@ private:
 	void ProcessInput();
 	// ゲームの更新処理
 	void UpdateGame();
+	// ゲームの描画処理
+	void DrawGame();
 
 	const int MWidth;       // 画面の横幅
 	const int MHeight;      // 画面の縦幅

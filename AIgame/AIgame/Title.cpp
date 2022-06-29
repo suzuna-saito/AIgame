@@ -30,7 +30,3 @@ SceneBase* Title::Update()
 	// シーン遷移条件を満たしていなかったら今のポインタを返す
 	return this;
 }
-
-void Title::Draw()
-{
-}

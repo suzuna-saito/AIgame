@@ -19,6 +19,12 @@
     <Filter Include="Scene\Result">
       <UniqueIdentifier>{e096129b-444d-4166-ab78-6776c847828e}</UniqueIdentifier>
     </Filter>
+    <Filter Include="UI">
+      <UniqueIdentifier>{732116fe-dfc4-476f-b489-283f2b8acaab}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="UI\Image">
+      <UniqueIdentifier>{f9b92f2e-6fb1-4f75-a036-a30682e1cdc3}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="SceneBase.cpp">
@@ -39,6 +45,15 @@
     <ClCompile Include="Result.cpp">
       <Filter>Scene\Result</Filter>
     </ClCompile>
+    <ClCompile Include="UIBase.cpp">
+      <Filter>UI</Filter>
+    </ClCompile>
+    <ClCompile Include="UIManager.cpp">
+      <Filter>UI</Filter>
+    </ClCompile>
+    <ClCompile Include="Image.cpp">
+      <Filter>UI\Image</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="SceneBase.h">
@@ -57,6 +72,15 @@
     </ClInclude>
     <ClInclude Include="Result.h">
       <Filter>Scene\Result</Filter>
+    </ClInclude>
+    <ClInclude Include="UIBase.h">
+      <Filter>UI</Filter>
+    </ClInclude>
+    <ClInclude Include="UIManager.h">
+      <Filter>UI</Filter>
+    </ClInclude>
+    <ClInclude Include="Image.h">
+      <Filter>UI\Image</Filter>
     </ClInclude>
   </ItemGroup>
 </Project>

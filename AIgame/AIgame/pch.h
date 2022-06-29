@@ -14,5 +14,9 @@
 #include "Play.h"
 #include "Result.h"
 
+/* UI */
+#include "UIBase.h"
+#include "UIManager.h"
+
 /* game */
 #include "Game.h"

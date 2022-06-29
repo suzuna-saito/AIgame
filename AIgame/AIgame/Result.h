@@ -19,10 +19,5 @@ public:
 	/// </summary>
 	/// <returns>現在のシーンのポインタ</returns>
 	SceneBase* Update()override;
-
-	/// <summary>
-	/// シーンの描画
-	/// </summary>
-	void Draw()override;
 };
 

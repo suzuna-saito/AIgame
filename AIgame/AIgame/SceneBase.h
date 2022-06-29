@@ -32,17 +32,10 @@ public:
 	/// <returns>現在のシーンのポインタ</returns>
 	virtual SceneBase* Update() = 0;
 
-	/// <summary>
-	/// シーンの描画
-	/// </summary>
-	virtual void Draw() = 0;
-
 	// 現在のシーンタグ
 	static Scene mIsScene;
 
 protected:
-	std::vector<int> mImage;  // 各シーンの画像ファイルのメモ
-
 	bool mSceneTransitionFlag;// 次のシーンに遷移するか
 };
 
