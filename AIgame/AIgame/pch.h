@@ -4,6 +4,7 @@
 /* ŠO•”QÆ */
 #include <DxLib.h>
 #include <vector>
+#include <algorithm>
 #include <map>
 
 // System

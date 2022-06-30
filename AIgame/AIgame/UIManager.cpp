@@ -38,13 +38,13 @@ void UIManager::AddUI(UIBase* _ui)
 void UIManager::DeleteUI()
 {
 	// 全てのUIをmPendingActorsに一時的に保管
-	mManager->mPendingActors = mManager->mUI;
+	mManager->mPendingUI = mManager->mUI;
 
 	// UIを格納するコンテナを空にする
 	mManager->mUI.clear();
 
 	// 格納するUIを判別
-	for (auto UI : mManager->mPendingActors)
+	for (auto UI : mManager->mPendingUI)
 	{
 		if (UI->GetDirthplaceScene() == SceneBase::mIsScene) // このUIが生成されたシーンと現在のシーンが一緒だったら
 		{
@@ -52,7 +52,7 @@ void UIManager::DeleteUI()
 		}
 	}
 
-	mManager->mPendingActors.clear();
+	mManager->mPendingUI.clear();
 }
 
 void UIManager::UpdateUI(float _deltaTime)

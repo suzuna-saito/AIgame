@@ -8,7 +8,6 @@ Game::Game()
 	, mNowScene(nullptr)
 	, mTmpScene(nullptr)
 	, mFps(nullptr)
-	, mImage(nullptr)
 {
 }
 
@@ -27,17 +26,18 @@ bool Game::Initialize()
 
 	// FPS管理クラスの初期化
 	mFps = new FPS();
-	// 画像データを管理しているクラスの初期化
-	mImage = new Image();
 
 	// 実態を一つしか持たないクラスの作成
 	UIManager::CreateInstance();  // UI管理クラス
+	Image::CreateInstance();      // 画像を管理するクラス
 
 	return true;
 }
 
 void Game::GameLoop()
 {
+	Image::Load();   // 必要画像を読み込み
+	
 	while (mIsRunningFlag)
 	{
 		// 入力関連の処理
@@ -56,7 +56,7 @@ void Game::GameLoop()
 			mNowScene = mTmpScene;      // 現在実行中のシーンの切り替え
 
 			UIManager::DeleteUI();      // いらないUIを削除する
-			mImage->Load();             // 必要画像を読み込み
+			Image::Load();              // 必要画像を読み込み
 
 			continue;
 		}
@@ -81,11 +81,11 @@ void Game::Termination()
 {
 	// 実体を一つしか持たないクラスの解放処理
 	UIManager::DeleteInstance();
+	Image::DeleteInstance();
 \
 	// クラスの解放処理
 	delete mNowScene;
 	delete mFps;
-	delete mImage;
 
 	// DXライブラリの後始末
 	DxLib_End();

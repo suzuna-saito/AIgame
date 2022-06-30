@@ -32,8 +32,7 @@ public:
 	/// <returns>現在のシーンのポインタ</returns>
 	virtual SceneBase* Update() = 0;
 
-	// 現在のシーンタグ
-	static Scene mIsScene;
+	static Scene mIsScene;    // 現在のシーンタグ
 
 protected:
 	bool mSceneTransitionFlag;// 次のシーンに遷移するか

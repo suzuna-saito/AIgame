@@ -27,9 +27,9 @@ protected:
 	std::vector<int> mImages;  // すべてのUI画像データを格納
 
 private:
-	SceneBase::Scene mDirthplaceScene;  // 各自のUIを生成したシーン
+	SceneBase::Scene mGeneratedScene;  // 各自のUIを生成したシーン
 
 public: // ゲッター、セッター
 	// 各UIが生成された時のシーンを返す
-	SceneBase::Scene GetDirthplaceScene() { return mDirthplaceScene; }
+	SceneBase::Scene GetDirthplaceScene() { return mGeneratedScene; }
 };

@@ -36,11 +36,8 @@ public:
 	static void DrawUI();
 
 private:
-	// UIManagerの実体（アプリ内に唯一存在）
-	static UIManager* mManager;
+	static UIManager* mManager;      // UIManagerの実体（アプリ内に唯一存在）
 
-	// すべてのUIを格納するコンテナ
-	std::vector<UIBase*>mUI;
-	// 一時的にUIを保存するコンテナ
-	std::vector<UIBase*>mPendingActors;
+	std::vector<UIBase*>mUI;         // すべてのUIを格納するコンテナ
+	std::vector<UIBase*>mPendingUI;  // 一時的にUIを保存するコンテナ
 };
