@@ -34,7 +34,7 @@ protected:
 	static std::vector<int> mNowUseImages;   // 現在使う画像データ
 
 private:
-	static Image* mImage;
+	static Image* mImage;   // UIManagerの実体（アプリ内に唯一存在）
 
 	// いらない画像を解放
 	void UnLoad();

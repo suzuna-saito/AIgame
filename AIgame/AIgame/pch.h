@@ -9,6 +9,7 @@
 
 // System
 #include "FPS.h"
+#include "Math.h"
 
 /* Scene */
 #include "SceneBase.h"
@@ -23,6 +24,10 @@
 #include "UIBase.h"
 #include "UIManager.h"
 #include "Background.h"
+
+/* Actor */
+#include "ActorBase.h"
+#include "ActorManager.h"
 
 /* game */
 #include "Game.h"

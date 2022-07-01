@@ -7,7 +7,7 @@ public:
 	// コンストラクタ
 	Background();
 	// デストラクタ
-	~Background();
+	~Background() {};
 
 	/// <summary>
 	/// 背景の更新処理

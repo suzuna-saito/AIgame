@@ -3,15 +3,11 @@
 Background::Background()
 	: UIBase(SceneBase::mIsScene)
 {
-	const char* file = nullptr;
+	const char* file = nullptr;  // 使いたいファイル名
 
 	if (SceneBase::mIsScene == SceneBase::Scene::eTitle)
 	{
 		file = "data/images/TitleScene/Char.png";
-	}
-	else if (SceneBase::mIsScene == SceneBase::Scene::ePlay)
-	{
-		file = "data/images/PlayScene/Play.png";
 	}
 	else if(SceneBase::mIsScene == SceneBase::Scene::eResult)
 	{
@@ -19,10 +15,6 @@ Background::Background()
 	}
 
 	Image::UseImages(ImageType::eBackGround, file);
-}
-
-Background::~Background()
-{
 }
 
 void Background::Draw()
