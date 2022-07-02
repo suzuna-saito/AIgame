@@ -18,7 +18,7 @@
 #include "Result.h"
 
 /* Image */
-#include "Image.h"
+//#include "Image.h"
 
 /* UI */
 #include "UIBase.h"
@@ -29,6 +29,9 @@
 #include "ActorBase.h"
 #include "ActorManager.h"
 #include "Ground.h"
+
+/* Map */
+#include "Map.h"
 
 /* game */
 #include "Game.h"

@@ -84,6 +84,9 @@
     <ClCompile Include="Ground.cpp">
       <Filter>Actor\Ground</Filter>
     </ClCompile>
+    <ClCompile Include="Map.cpp">
+      <Filter>Map</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="SceneBase.h">
@@ -126,6 +129,9 @@
     </ClInclude>
     <ClInclude Include="Ground.h">
       <Filter>Actor\Ground</Filter>
+    </ClInclude>
+    <ClInclude Include="Map.h">
+      <Filter>Map</Filter>
     </ClInclude>
   </ItemGroup>
 </Project>

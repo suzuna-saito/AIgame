@@ -14,11 +14,11 @@ Background::Background()
 		file = "data/images/ResultScene/Result.png";
 	}
 
-	Image::UseImages(ImageType::eBackGround, file);
+	mImage.emplace_back(LoadGraph(file));
 }
 
 void Background::Draw()
 {
 	// ŽŽ‚µ@@@
-	DrawGraph(0, 0, Image::mNowUseImages[(int)ImageType::eBackGround], TRUE);
+	DrawGraph(0, 0, mImage[0], TRUE);
 }

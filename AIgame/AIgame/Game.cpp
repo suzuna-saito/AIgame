@@ -30,15 +30,12 @@ bool Game::Initialize()
 	// 実態を一つしか持たないクラスの作成
 	UIManager::CreateInstance();    // UI管理クラス
 	ActorManager::CreateInstance(); // Actor管理クラス
-	Image::CreateInstance();        // 画像を管理するクラス
 
 	return true;
 }
 
 void Game::GameLoop()
-{
-	Image::Load();   // 必要画像を読み込み
-	
+{	
 	while (mIsRunningFlag)
 	{
 		// 入力関連の処理
@@ -58,7 +55,6 @@ void Game::GameLoop()
 
 			UIManager::DeleteUI();       // いらないUIを削除する
 			ActorManager::DeleteActor(); // いらないアクターを削除する
-			Image::Load();               // 必要画像を読み込み
 
 			continue;
 		}
@@ -84,7 +80,6 @@ void Game::Termination()
 	// 実体を一つしか持たないクラスの解放処理
 	UIManager::DeleteInstance();
 	ActorManager::DeleteActor();
-	Image::DeleteInstance();
 
 	// クラスの解放処理
 	delete mNowScene;

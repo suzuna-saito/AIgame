@@ -1,7 +1,7 @@
 #pragma once
 
 /* Actorの基底クラス */
-class ActorBase :public Image
+class ActorBase
 {
 public:
 	// アクターの状態管理用タグ

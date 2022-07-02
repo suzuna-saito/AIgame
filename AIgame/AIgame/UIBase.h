@@ -1,7 +1,7 @@
 #pragma once
 
 /* UIの基底クラス */
-class UIBase : public Image
+class UIBase
 {
 public:
 	/// <summary>
@@ -23,7 +23,8 @@ public:
 	virtual void Draw() = 0;
 
 protected:
-	std::vector<VECTOR> mPos;  // すべてのUIポジション
+	std::vector<VECTOR> mPos;  // UIポジション
+	std::vector<int> mImage;   // UI画像データ
 
 private:
 	SceneBase::Scene mGeneratedScene;  // 各自のUIを生成したシーン
