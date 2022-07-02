@@ -3,7 +3,7 @@
 Play::Play()
 	: SceneBase(SceneBase::Scene::ePlay)
 {
-	new Background();
+	new Ground();
 
 }
 

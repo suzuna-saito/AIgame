@@ -37,6 +37,9 @@
     <Filter Include="System\Math">
       <UniqueIdentifier>{6591a5a9-d24d-4b31-974a-02294b992539}</UniqueIdentifier>
     </Filter>
+    <Filter Include="Actor\Ground">
+      <UniqueIdentifier>{6807e89b-ac87-404a-8173-4ccb9d7ad2cd}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="SceneBase.cpp">
@@ -78,6 +81,9 @@
     <ClCompile Include="ActorManager.cpp">
       <Filter>Actor</Filter>
     </ClCompile>
+    <ClCompile Include="Ground.cpp">
+      <Filter>Actor\Ground</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="SceneBase.h">
@@ -117,6 +123,9 @@
     </ClInclude>
     <ClInclude Include="ActorManager.h">
       <Filter>Actor</Filter>
+    </ClInclude>
+    <ClInclude Include="Ground.h">
+      <Filter>Actor\Ground</Filter>
     </ClInclude>
   </ItemGroup>
 </Project>

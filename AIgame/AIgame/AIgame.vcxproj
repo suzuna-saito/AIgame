@@ -164,6 +164,7 @@
     <ClCompile Include="Background.cpp" />
     <ClCompile Include="FPS.cpp" />
     <ClCompile Include="Game.cpp" />
+    <ClCompile Include="Ground.cpp" />
     <ClCompile Include="Image.cpp" />
     <ClCompile Include="main.cpp" />
     <ClCompile Include="Math.cpp" />
@@ -195,6 +196,7 @@
     <ClInclude Include="Background.h" />
     <ClInclude Include="FPS.h" />
     <ClInclude Include="Game.h" />
+    <ClInclude Include="Ground.h" />
     <ClInclude Include="Image.h" />
     <ClInclude Include="Math.h" />
     <ClInclude Include="pch.h" />

@@ -23,7 +23,7 @@ public:
 	virtual void Draw() = 0;
 
 protected:
-	std::vector<Vector3> mPos;  // すべてのUIポジション
+	std::vector<VECTOR> mPos;  // すべてのUIポジション
 
 private:
 	SceneBase::Scene mGeneratedScene;  // 各自のUIを生成したシーン

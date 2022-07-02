@@ -28,6 +28,7 @@
 /* Actor */
 #include "ActorBase.h"
 #include "ActorManager.h"
+#include "Ground.h"
 
 /* game */
 #include "Game.h"

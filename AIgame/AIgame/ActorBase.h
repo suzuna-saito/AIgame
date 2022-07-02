@@ -29,24 +29,32 @@ public:
 	virtual ~ActorBase() {};
 
 	/// <summary>
-	/// 更新処理
+	/// 更新処理(アクターの状態を確認)
 	/// </summary>
 	/// <param name="_deltaTime">最後のフレームを完了するのに要した時間</param>
-	void Update(float _deltaTime);
+	void UpdateActor(float _deltaTime);
 
 	/// <summary>
 	/// アクター独自の更新処理
 	/// </summary>
 	/// <param name="_deltaTime">最後のフレームを完了するのに要した時間</param>
-	virtual void UpdateActor(float _deltaTime) {};
+	virtual void Update(float _deltaTime) {};
+
+	/// <summary>
+	/// アクターの描画
+	/// </summary>
+	virtual void Draw() = 0;
 
 protected:
 	State mState;          // 各自のアクターの状態
 
 	// Transform
-	Vector3 mPos;          // ポジション
-	Vector3 mScale;        // 大きさ
+	VECTOR mPos;          // ポジション
+	VECTOR mScale;        // 大きさ
 	Quaternion mRotation;  // 回転
+
+	// @@@ 
+	int mImage;
 
 private:
 	SceneBase::Scene mDirthplaceScene;  // 各自のアクターを生成したシーン
@@ -61,7 +69,7 @@ public:  // ゲッター、セッター
 	State GetState()const { return mState; }
 
 	// アクターのポジションを取得
-	const Vector3& GetPosition()const { return mPos; }
+	const VECTOR& GetPosition()const { return mPos; }
 	// アクターの向きを取得
 	const Quaternion& GetRotation()const { return mRotation; }
 };

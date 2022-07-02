@@ -22,7 +22,7 @@ public:
 	/// <summary>
 	/// アクターの削除
 	/// </summary>
-	static void RemoveActor();
+	static void DeleteActor();
 
 	/// <summary>
 	/// アクターの更新処理
@@ -31,7 +31,7 @@ public:
 	static void UpdateActor(float _deltaTime);
 
 	/// <summary>
-	/// UIの描画
+	/// アクターの描画
 	/// </summary>
 	static void DrawActor();
 

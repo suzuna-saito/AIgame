@@ -1,7 +1,7 @@
 #include "pch.h"
 
 Game::Game()
-	: MWidth(650)
+	: MWidth(1920)
 	, MHeight(1080)
 	, MColorBitNum(16)
 	, mIsRunningFlag(true)
@@ -28,8 +28,9 @@ bool Game::Initialize()
 	mFps = new FPS();
 
 	// 実態を一つしか持たないクラスの作成
-	UIManager::CreateInstance();  // UI管理クラス
-	Image::CreateInstance();      // 画像を管理するクラス
+	UIManager::CreateInstance();    // UI管理クラス
+	ActorManager::CreateInstance(); // Actor管理クラス
+	Image::CreateInstance();        // 画像を管理するクラス
 
 	return true;
 }
@@ -55,8 +56,9 @@ void Game::GameLoop()
 			delete mNowScene;           // 現在のシーンの解放
 			mNowScene = mTmpScene;      // 現在実行中のシーンの切り替え
 
-			UIManager::DeleteUI();      // いらないUIを削除する
-			Image::Load();              // 必要画像を読み込み
+			UIManager::DeleteUI();       // いらないUIを削除する
+			ActorManager::DeleteActor(); // いらないアクターを削除する
+			Image::Load();               // 必要画像を読み込み
 
 			continue;
 		}
@@ -81,8 +83,9 @@ void Game::Termination()
 {
 	// 実体を一つしか持たないクラスの解放処理
 	UIManager::DeleteInstance();
+	ActorManager::DeleteActor();
 	Image::DeleteInstance();
-\
+
 	// クラスの解放処理
 	delete mNowScene;
 	delete mFps;
@@ -107,5 +110,6 @@ void Game::UpdateGame()
 
 void Game::DrawGame()
 {
-	UIManager::DrawUI();  // UI
+	UIManager::DrawUI();       // UI
+	ActorManager::DrawActor(); // アクター
 }
