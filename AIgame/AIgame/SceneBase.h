@@ -1,8 +1,6 @@
 #pragma once
 
-/* 
-シーンの基底クラス
-*/
+/* シーンの基底クラス */
 class SceneBase
 {
 public:

@@ -1,8 +1,6 @@
 #pragma once
 
-/* 
-リザルトシーン
-*/
+/* リザルトシーン */
 class Result :public SceneBase
 {
 public:

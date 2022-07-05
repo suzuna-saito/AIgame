@@ -30,6 +30,7 @@ bool Game::Initialize()
 	// 実態を一つしか持たないクラスの作成
 	UIManager::CreateInstance();    // UI管理クラス
 	ActorManager::CreateInstance(); // Actor管理クラス
+	Camera::CreateInstance();       // カメラ
 
 	return true;
 }
@@ -80,6 +81,7 @@ void Game::Termination()
 	// 実体を一つしか持たないクラスの解放処理
 	UIManager::DeleteInstance();
 	ActorManager::DeleteActor();
+	Camera::DeleteInstance();
 
 	// クラスの解放処理
 	delete mNowScene;

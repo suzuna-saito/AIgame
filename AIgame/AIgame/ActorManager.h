@@ -36,14 +36,10 @@ public:
 	static void DrawActor();
 
 private:
-	// ActorManagerの実体（アプリ内に唯一存在）
-	static ActorManager* mManager;
+	static ActorManager* mManager;          // ActorManagerの実体（アプリ内に唯一存在）
 
-	// 全てのアクターを格納するコンテナ
-	std::vector<ActorBase*>mActors;
-	// Update中に追加されたアクターを一時的に保存するコンテナ
-	std::vector<ActorBase*>mPendingActors;
+	std::vector<ActorBase*>mActors;         // 全てのアクターを格納するコンテナ
+	std::vector<ActorBase*>mPendingActors;  // Update中に追加されたアクターを一時的に保存するコンテナ
 
-	// Update中かどうか
-	bool mUpdatingActor;
+	bool mUpdatingActor;                    // Update中かどうか
 };

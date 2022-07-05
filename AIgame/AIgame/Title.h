@@ -1,8 +1,6 @@
 #pragma once
 
-/* 
-タイトルシーン
-*/
+/* タイトルシーン */
 class Title :public SceneBase
 {
 public:

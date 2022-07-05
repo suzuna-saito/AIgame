@@ -1,4 +1,6 @@
 #pragma once
+
+/* °ŠÖ˜A‚ÌƒNƒ‰ƒX */
 class Ground :public ActorBase
 {
 public:

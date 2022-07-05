@@ -40,6 +40,9 @@
     <Filter Include="Actor\Ground">
       <UniqueIdentifier>{6807e89b-ac87-404a-8173-4ccb9d7ad2cd}</UniqueIdentifier>
     </Filter>
+    <Filter Include="Actor\Camera">
+      <UniqueIdentifier>{c42c8bd2-7e66-46a0-affb-0bacf38000df}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="SceneBase.cpp">
@@ -87,6 +90,9 @@
     <ClCompile Include="Map.cpp">
       <Filter>Map</Filter>
     </ClCompile>
+    <ClCompile Include="Camera.cpp">
+      <Filter>Actor\Camera</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="SceneBase.h">
@@ -132,6 +138,9 @@
     </ClInclude>
     <ClInclude Include="Map.h">
       <Filter>Map</Filter>
+    </ClInclude>
+    <ClInclude Include="Camera.h">
+      <Filter>Actor\Camera</Filter>
     </ClInclude>
   </ItemGroup>
 </Project>

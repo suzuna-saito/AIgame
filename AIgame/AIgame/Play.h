@@ -1,8 +1,6 @@
 #pragma once
 
-/* 
-プレイシーン
-*/
+/* プレイシーン */
 class Play :public SceneBase
 {
 public:

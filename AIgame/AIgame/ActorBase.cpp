@@ -5,7 +5,7 @@ ActorBase::ActorBase(const SceneBase::Scene& _nowScene, const Tag& _actorTag)
 	, mDirthplaceScene(_nowScene)
 	, mTag(_actorTag)
 	, mPos(VGet(0.0f,0.0f,0.0f))
-	, mScale(VGet(0.0f,0.0f,0.0f))
+	, mScale(VGet(0.0f, 0.0f, 0.0f))
 	, mRotation(Quaternion::Identity)
 {
 	// アクターを追加する

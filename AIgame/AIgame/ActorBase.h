@@ -43,18 +43,17 @@ public:
 	/// <summary>
 	/// アクターの描画
 	/// </summary>
-	virtual void Draw() = 0;
+	virtual void Draw() {};
 
 protected:
 	State mState;          // 各自のアクターの状態
 
 	// Transform
-	VECTOR mPos;          // ポジション
-	VECTOR mScale;        // 大きさ
+	VECTOR mPos;           // ポジション
+	VECTOR mScale;         // 大きさ
 	Quaternion mRotation;  // 回転
 
-	// @@@ 
-	int mImage;
+	int mModel;            // アクターモデルデータ
 
 private:
 	SceneBase::Scene mDirthplaceScene;  // 各自のアクターを生成したシーン
@@ -68,9 +67,9 @@ public:  // ゲッター、セッター
 	// アクターの状態を取得
 	State GetState()const { return mState; }
 
-	// アクターのポジションを取得
-	const VECTOR& GetPosition()const { return mPos; }
-	// アクターの向きを取得
-	const Quaternion& GetRotation()const { return mRotation; }
+	//// アクターのポジションを取得
+	//const VECTOR& GetPosition()const { return mPos; }
+	//// アクターの向きを取得
+	//const Quaternion& GetRotation()const { return mRotation; }
 };
 

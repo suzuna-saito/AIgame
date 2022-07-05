@@ -1,6 +1,6 @@
 #pragma once
 
-/* îwåiêßå‰ */
+/* îwåi */
 class Background :public UIBase
 {
 public:

@@ -162,6 +162,7 @@
     <ClCompile Include="ActorBase.cpp" />
     <ClCompile Include="ActorManager.cpp" />
     <ClCompile Include="Background.cpp" />
+    <ClCompile Include="Camera.cpp" />
     <ClCompile Include="FPS.cpp" />
     <ClCompile Include="Game.cpp" />
     <ClCompile Include="Ground.cpp" />
@@ -200,6 +201,7 @@
     <ClInclude Include="ActorBase.h" />
     <ClInclude Include="ActorManager.h" />
     <ClInclude Include="Background.h" />
+    <ClInclude Include="Camera.h" />
     <ClInclude Include="FPS.h" />
     <ClInclude Include="Game.h" />
     <ClInclude Include="Ground.h" />

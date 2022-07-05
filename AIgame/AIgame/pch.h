@@ -1,4 +1,5 @@
 /* プリコンパイル済みヘッダー */
+// すべてのヘッダーをここに書く
 #pragma once
 
 /* 外部参照 */
@@ -6,6 +7,7 @@
 #include <vector>
 #include <algorithm>
 #include <map>
+#include <iostream>
 
 // System
 #include "FPS.h"
@@ -28,6 +30,7 @@
 /* Actor */
 #include "ActorBase.h"
 #include "ActorManager.h"
+#include "Camera.h"
 #include "Ground.h"
 
 /* Map */
