@@ -6,12 +6,16 @@ Ground::Ground()
 	mModel = MV1LoadModel("data/models/Ground/RedGround.mv1");
 
 	MV1SetScale(mModel, VGet(100.0f, 10.0f, 100.0f));
-	//MV1SetPosition(mImage, VGet(1000.0f, 500.0f, -500.0f));
+	MV1SetPosition(mModel, VGet(0.0f, 0.0f, 0.0f));
+}
+
+Ground::~Ground()
+{
+	MV1DeleteModel(mModel);
 }
 
 void Ground::Update(float _deltaTime)
 {
-	MV1DeleteModel(mModel);
 }
 
 void Ground::Draw()

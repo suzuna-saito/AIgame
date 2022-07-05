@@ -103,6 +103,8 @@ void Game::ProcessInput()
 void Game::UpdateGame()
 {
 	float deltaTime = mFps->GetDeltaTime();
+
+	ActorManager::UpdateActor(deltaTime);
 }
 
 void Game::DrawGame()

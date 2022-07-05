@@ -9,7 +9,7 @@ public:
 	/// </summary>
 	Ground();
 	// デストラクタ
-	~Ground() {};
+	~Ground();
 
 	/// <summary>
 	/// 更新処理
