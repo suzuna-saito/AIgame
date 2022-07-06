@@ -23,8 +23,8 @@ public:
 	virtual void Draw() = 0;
 
 protected:
-	std::vector<VECTOR> mPos;  // UIポジション
-	std::vector<int> mImage;   // UI画像データ
+	VECTOR mPos;  // UIポジション
+	int mImage;   // UI画像データ
 
 private:
 	SceneBase::Scene mGeneratedScene;  // 各自のUIを生成したシーン

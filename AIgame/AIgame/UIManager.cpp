@@ -48,7 +48,7 @@ void UIManager::DeleteUI()
 	{
 		if (UI->GetDirthplaceScene() == SceneBase::mIsScene) // ‚±‚ÌUI‚ª¶¬‚³‚ê‚½ƒV[ƒ“‚ÆŒ»Ý‚ÌƒV[ƒ“‚ªˆê‚¾‚Á‚½‚ç
 		{
-			mManager->mUI.emplace_back(UI);  // ‚±‚ÌUI‚ðŠi”[
+			mManager->mUI.emplace_back(UI);                  // ‚±‚ÌUI‚ðŠi”[
 		}
 	}
 

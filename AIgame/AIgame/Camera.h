@@ -14,8 +14,13 @@ public:
 	// インスタンスを削除する
 	static void DeleteInstance();
 
-	// カメラのアップデート
-	void Update(float _deltaTime)override;
+//	// カメラのアップデート
+//	void Update(float _deltaTime)override;
+//
+//	/// <summary>
+///// 描画
+///// </summary>
+//	void Draw()override;
 
 private:
 	static Camera* mCamera;  // Cameraの実体（アプリ内に唯一存在）

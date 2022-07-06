@@ -33,6 +33,8 @@ public:
 	static Scene mIsScene;    // 現在のシーンタグ
 
 protected:
+	class Map* mMapCreate;    // マップ生成
+
 	bool mSceneTransitionFlag;// 次のシーンに遷移するか
 };
 

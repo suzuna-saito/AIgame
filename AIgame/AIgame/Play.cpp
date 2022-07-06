@@ -3,12 +3,21 @@
 Play::Play()
 	: SceneBase(SceneBase::Scene::ePlay)
 {
-	new Ground();
+	//ChangeLightTypePoint(VGet(-300.0f, 1000.0f, 200.0f),
+	//	0.0f, 0.0f, 0.0f, 0.0f);
+	SetUseLighting(false);
 
+	mMapCreate = new Map();
+
+	if (!mMapCreate->OpenFile())
+	{
+		mMapCreate->CreateGround();
+	}
 }
 
 Play::~Play()
 {
+	delete mMapCreate;
 }
 
 void Play::Input()

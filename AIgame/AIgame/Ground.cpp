@@ -1,12 +1,14 @@
 #include "pch.h"
 
-Ground::Ground()
+Ground::Ground(const VECTOR& _pos)
 	: ActorBase(SceneBase::mIsScene,ActorBase::Tag::eGround)
 {
-	mModel = MV1LoadModel("data/models/Ground/RedGround.mv1");
+	mModel = MV1LoadModel("Data/Models/Ground/Ground.mv1");
 
-	MV1SetScale(mModel, VGet(100.0f, 10.0f, 100.0f));
-	MV1SetPosition(mModel, VGet(0.0f, 0.0f, 0.0f));
+	// 床のサイズを設定
+	MV1SetScale(mModel, VGet(50.0f, 10.0f, 50.0f));
+	// 床のポジションを設定
+	MV1SetPosition(mModel, _pos);
 }
 
 Ground::~Ground()

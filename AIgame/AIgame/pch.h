@@ -8,10 +8,14 @@
 #include <algorithm>
 #include <map>
 #include <iostream>
+#include <document.h>
+#include <fstream>
+#include <sstream>
 
 // System
 #include "FPS.h"
 #include "Math.h"
+#include "RapidJson.h"
 
 /* Scene */
 #include "SceneBase.h"

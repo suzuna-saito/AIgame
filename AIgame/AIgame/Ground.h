@@ -7,7 +7,8 @@ public:
 	/// <summary>
 	/// コンストラクタ
 	/// </summary>
-	Ground();
+	/// <param name="_pos">ポジション</param>
+	Ground(const VECTOR& _pos);
 	// デストラクタ
 	~Ground();
 

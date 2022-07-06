@@ -43,6 +43,9 @@
     <Filter Include="Actor\Camera">
       <UniqueIdentifier>{c42c8bd2-7e66-46a0-affb-0bacf38000df}</UniqueIdentifier>
     </Filter>
+    <Filter Include="System\RapidJson">
+      <UniqueIdentifier>{d3c5b949-9772-4402-957b-7645f47d5da3}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="SceneBase.cpp">
@@ -93,6 +96,9 @@
     <ClCompile Include="Camera.cpp">
       <Filter>Actor\Camera</Filter>
     </ClCompile>
+    <ClCompile Include="RapidJson.cpp">
+      <Filter>System\RapidJson</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="SceneBase.h">
@@ -141,6 +147,9 @@
     </ClInclude>
     <ClInclude Include="Camera.h">
       <Filter>Actor\Camera</Filter>
+    </ClInclude>
+    <ClInclude Include="RapidJson.h">
+      <Filter>System\RapidJson</Filter>
     </ClInclude>
   </ItemGroup>
 </Project>

@@ -20,8 +20,7 @@ bool Game::Initialize()
 	// DXライブラリの初期化
 	if (DxLib_Init() == -1)
 	{
-		// エラーが起きたら直ちに終了
-		return false;
+		return false;    // エラーが起きたら直ちに終了
 	}
 
 	// FPS管理クラスの初期化
@@ -37,22 +36,18 @@ bool Game::Initialize()
 
 void Game::GameLoop()
 {	
+	// ゲーム続行フラグがたってたら
 	while (mIsRunningFlag)
 	{
-		// 入力関連の処理
-		ProcessInput();
+		ProcessInput();                  // 入力関連の処理
 
-		// 現在のシーンの入力処理
-		mNowScene->Input();
-
-		// 現在のシーンの更新処理
-		mTmpScene = mNowScene->Update();
+		mTmpScene = mNowScene->Update(); // 現在のシーンの更新処理
 
 		// シーンの切り替えが発生したら
 		if (mTmpScene != mNowScene)
 		{
-			delete mNowScene;           // 現在のシーンの解放
-			mNowScene = mTmpScene;      // 現在実行中のシーンの切り替え
+			delete mNowScene;            // 現在のシーンの解放
+			mNowScene = mTmpScene;       // 現在実行中のシーンの切り替え
 
 			UIManager::DeleteUI();       // いらないUIを削除する
 			ActorManager::DeleteActor(); // いらないアクターを削除する
@@ -60,28 +55,17 @@ void Game::GameLoop()
 			continue;
 		}
 
-		// ゲームの更新処理
-		UpdateGame();
-		// FPSの更新処理
-		mFps->Update();
-
-		// 画面を初期化する
-		ClearDrawScreen();
-
-		// 現在のシーンを描画
-		DrawGame();
-
-		// 裏画面の内容を表画面に反映させる
-		ScreenFlip();
+		UpdateGame();     // ゲームの更新処理
+		DrawGame();       // 現在のシーンを描画
 	}
 }
 
 void Game::Termination()
 {
 	// 実体を一つしか持たないクラスの解放処理
-	UIManager::DeleteInstance();
-	ActorManager::DeleteActor();
-	Camera::DeleteInstance();
+	UIManager::DeleteInstance();  // UIマネージャー
+	ActorManager::DeleteActor();  // Actorマネージャー
+	Camera::DeleteInstance();     // カメラ
 
 	// クラスの解放処理
 	delete mNowScene;
@@ -98,17 +82,30 @@ void Game::ProcessInput()
 	{
 		mIsRunningFlag = false;   // ゲームループフラグをfalseにする
 	}
+
+	// 現在のシーンの入力処理
+	mNowScene->Input();
 }
 
 void Game::UpdateGame()
 {
+	// デルタタイムを更新
 	float deltaTime = mFps->GetDeltaTime();
 
-	ActorManager::UpdateActor(deltaTime);
+	ActorManager::UpdateActor(deltaTime); // アクター
+
+	// FPSの更新処理
+	mFps->Update();
 }
 
 void Game::DrawGame()
 {
+	// 画面を初期化する
+	ClearDrawScreen();
+
 	UIManager::DrawUI();       // UI
 	ActorManager::DrawActor(); // アクター
+
+	// 裏画面の内容を表画面に反映させる
+	ScreenFlip();
 }
