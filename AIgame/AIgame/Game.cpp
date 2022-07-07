@@ -4,6 +4,7 @@ Game::Game()
 	: MWidth(1920)
 	, MHeight(1080)
 	, MColorBitNum(16)
+	, MZbitNum(24)
 	, mIsRunningFlag(true)
 	, mNowScene(nullptr)
 	, mTmpScene(nullptr)
@@ -16,6 +17,9 @@ bool Game::Initialize()
 	// 画面モードのセット
 	SetGraphMode(MWidth, MHeight, MColorBitNum);
 	ChangeWindowMode(TRUE);
+
+	// Ｚバッファの1ピクセル辺りのビット数をデフォルトの16から24に変更
+	SetZBufferBitDepth(MZbitNum);
 
 	// DXライブラリの初期化
 	if (DxLib_Init() == -1)

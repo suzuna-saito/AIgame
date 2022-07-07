@@ -3,15 +3,12 @@
 Play::Play()
 	: SceneBase(SceneBase::Scene::ePlay)
 {
-	//ChangeLightTypePoint(VGet(-300.0f, 1000.0f, 200.0f),
-	//	0.0f, 0.0f, 0.0f, 0.0f);
-	SetUseLighting(false);
-
 	mMapCreate = new Map();
 
 	if (!mMapCreate->OpenFile())
 	{
-		mMapCreate->CreateGround();
+		mMapCreate->GroundCreate();
+		mMapCreate->PlayerCreate();
 	}
 }
 

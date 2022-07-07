@@ -14,19 +14,25 @@ bool Map::OpenFile()
 {
 	// @@@ test
 	// データの読み込み
-	if (!ReadTiledJson(mMapDate, "Data/Config/Play.json", "test"))
+	if (!ReadTiledJson(mGroundMapDate, "Data/Config/test.json", "Ground"))
 	{
 		printf("don't have Layer/test\n");
 		return true;
 	}
 
-	mMapSize.x = mMapDate[0].size();
-	mMapSize.y = mMapDate.size();
+	mMapSize.x = mGroundMapDate[0].size();
+	mMapSize.y = mGroundMapDate.size();
+
+	if (!ReadTiledJson(mPlayerMapDate, "Data/Config/test.json", "Player"))
+	{
+		printf("don't have Layer/test\n");
+		return true;
+	}
 
 	return false;
 }
 
-void Map::CreateGround()
+void Map::GroundCreate()
 {
 	// 奥行
 	for (float iz = 0; iz < mMapSize.y; ++iz)
@@ -35,7 +41,7 @@ void Map::CreateGround()
 		for (float ix = 0; ix < mMapSize.x; ++ix)
 		{
 			// 割り当てられている数字
-			const unsigned int name = mMapDate[(int)iz][(int)ix];
+			const unsigned int name = mGroundMapDate[(int)iz][(int)ix];
 
 			// ポジション
 			const VECTOR objPos = VECTOR(VGet(-mObjDistance.x * ix, 0.0f, mObjDistance.z * iz));
@@ -43,11 +49,36 @@ void Map::CreateGround()
 			// 割り当てられている数字が1だったら
 			if (name == 1)
 			{
-				// 床の生成
-				new Ground(objPos);
+				new Ground(objPos); // 床の生成
 			}
 		}
+
 	}
+}
+
+void Map::PlayerCreate()
+{
+	// 奥行
+	for (float iz = 0; iz < mMapSize.y; ++iz)
+	{
+		// 横幅
+		for (float ix = 0; ix < mMapSize.x; ++ix)
+		{
+			// 割り当てられている数字
+			const unsigned int name = mPlayerMapDate[(int)iz][(int)ix];
+
+			// ポジション
+			const VECTOR objPos = VECTOR(VGet(-mObjDistance.x * ix, 20.0f, mObjDistance.z * iz));
+
+			// 割り当てられている数字が2だったら
+			if (name == 2)
+			{
+				new Player(objPos); // プレイヤーの生成
+			}
+		}
+
+	}
+
 }
 
 bool Map::ReadTiledJson(std::vector<std::vector<int>>& _mapData, const char* _fileName, const char* _layerName)

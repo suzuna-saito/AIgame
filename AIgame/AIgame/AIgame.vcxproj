@@ -182,6 +182,7 @@
       <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Release|x64'">Create</PrecompiledHeader>
     </ClCompile>
     <ClCompile Include="Play.cpp" />
+    <ClCompile Include="Player.cpp" />
     <ClCompile Include="RapidJson.cpp" />
     <ClCompile Include="Result.cpp" />
     <ClCompile Include="SceneBase.cpp">
@@ -216,6 +217,7 @@
     <ClInclude Include="Math.h" />
     <ClInclude Include="pch.h" />
     <ClInclude Include="Play.h" />
+    <ClInclude Include="Player.h" />
     <ClInclude Include="RapidJson.h" />
     <ClInclude Include="Result.h" />
     <ClInclude Include="SceneBase.h" />

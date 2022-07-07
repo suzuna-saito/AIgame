@@ -5,12 +5,12 @@ Camera* Camera::mCamera = nullptr;
 
 Camera::Camera()
 	: ActorBase(SceneBase::Scene::eInit, Tag::eCamera)
-	, MNear(0.1f)
+	, MNear(20.0f)
 	, MFar(10000.0f)
-	, mViewpoint(VGet(-200.0f, 0.0f, 200.0f))
+	, mViewpoint(VGet(-450.0f, 0.0f, 450.0f))
 {
 	// Î‚ßã‚©‚çŒ©‰º‚ë‚·ˆÊ’u
-	mPos = VECTOR(VGet(-200.0f, 1000.0f, 500.0f));
+	mPos = VECTOR(VGet(-450.0f, 1000.0f, 1700.0f));
 	mPrevious = mPos;
 
 	// ƒJƒƒ‰‚Ì•`‰æ”ÍˆÍ‚ğİ’è
@@ -67,7 +67,7 @@ void Camera::DeleteInstance()
 //
 //	SetCameraPositionAndTarget_UpVecY(mPos, mViewpoint);
 //}
-
+//
 //void Camera::Draw()
 //{
 //	unsigned int Color;

@@ -17,6 +17,7 @@ public:
 	{
 		eCamera,    // カメラ
 		eGround,    // 床
+		ePlayer,    // プレイヤー
 	};
 
 	/// <summary>

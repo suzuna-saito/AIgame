@@ -36,6 +36,7 @@
 #include "ActorManager.h"
 #include "Camera.h"
 #include "Ground.h"
+#include "Player.h"
 
 /* Map */
 #include "Map.h"

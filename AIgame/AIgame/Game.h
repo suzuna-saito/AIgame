@@ -29,6 +29,7 @@ private:
 	const int MWidth;       // 画面の横幅
 	const int MHeight;      // 画面の縦幅
 	const int MColorBitNum; // カラービット数
+	const int MZbitNum;     // Zバッファの1ピクセル辺りのビット数
 
 	bool mIsRunningFlag;    // ゲームを続行するかどうか
 

@@ -16,7 +16,9 @@ public:
 	bool OpenFile();
 
 	// 床を生成する
-	void CreateGround();
+	void GroundCreate();
+	// プレイヤーを生成する
+	void PlayerCreate();
 
 private:
 	/// <summary>
@@ -36,7 +38,8 @@ private:
 	/// <returns>-1 : なかった</returns>
 	int FindLayerIndex(rapidjson::GenericArray<false, rapidjson::Value>& _layer, std::string& _layerName);
 
-	std::vector<std::vector<int>> mMapDate; // マップデータ
+	std::vector<std::vector<int>> mGroundMapDate; // 床のマップデータ
+	std::vector<std::vector<int>> mPlayerMapDate; // プレイヤーのマップデータ
 
 	Vector2 mMapSize;                       // マップデータサイズ(x,y)
 	Vector3 mObjDistance;                   // オブジェクトごとの距離(x,y,z)

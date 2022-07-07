@@ -16,7 +16,7 @@ public:
 	/// 更新処理
 	/// </summary>
 	/// <param name="_deltaTime">最後のフレームを完了するのに要した時間</param>
-	virtual void Update(float _deltaTime)override;
+	void Update(float _deltaTime)override;
 
 	/// <summary>
 	/// 描画
