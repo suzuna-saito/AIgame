@@ -18,7 +18,7 @@ public:
 	/// UI‚Ì’Ç‰Á
 	/// </summary>
 	/// <param name="_ui">’Ç‰Á‚·‚éUI‚Ìƒ|ƒCƒ“ƒ^</param>
-	static void AddUI(class UIBase* _ui);
+	static void AddUI(UIBase* _ui);
 	/// <summary>
 	/// ‚·‚×‚Ä‚ÌUI‚Ìíœ
 	/// </summary>

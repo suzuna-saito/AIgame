@@ -29,7 +29,6 @@ private:
 	const float MFar;        // カメラの奥クリップ距離
 
 	VECTOR mPos;             // カメラの位置
-	VECTOR mPrevious;        // カメラ位置を保存する
 	VECTOR mViewpoint;       // 注視点
 };
 

@@ -31,6 +31,10 @@
 #include "UIManager.h"
 #include "Background.h"
 
+/* Component */
+#include "Component.h"
+#include "MoveComponent.h"
+
 /* Actor */
 #include "ActorBase.h"
 #include "ActorManager.h"

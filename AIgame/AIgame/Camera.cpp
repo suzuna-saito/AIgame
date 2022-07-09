@@ -6,12 +6,9 @@ Camera* Camera::mCamera = nullptr;
 Camera::Camera()
 	: MNear(20.0f)
 	, MFar(10000.0f)
+	, mPos(VGet(-450.0f, 1000.0f, 1700.0f))
 	, mViewpoint(VGet(-450.0f, 0.0f, 450.0f))
 {
-	// 斜め上から見下ろす位置
-	mPos = VECTOR(VGet(-450.0f, 1000.0f, 1700.0f));
-	mPrevious = mPos;
-
 	// カメラの描画範囲を設定
 	SetCameraNearFar(MNear, MFar);
 	// カメラの視点、注視点を設定

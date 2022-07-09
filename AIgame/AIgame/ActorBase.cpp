@@ -22,3 +22,19 @@ void ActorBase::UpdateActor(float _deltaTime)
 		Update(_deltaTime);
 	}
 }
+
+void ActorBase::AddComponent(Component* _component)
+{
+	// Component‚ÌŠi”[
+	mComponents.emplace_back(_component);
+}
+
+void ActorBase::RemoveComponent(Component* _component)
+{
+	// ˆø”‚Ì’l‚ğŒŸõ‚µAˆê’v‚µ‚½‚à‚Ì‚ğÁ‚·
+	auto itr = std::find(mComponents.begin(), mComponents.end(), _component);
+	if (itr != mComponents.end())
+	{
+		mComponents.erase(itr);
+	}
+}

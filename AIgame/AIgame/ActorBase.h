@@ -46,6 +46,17 @@ public:
 	/// </summary>
 	virtual void Draw() {};
 
+	/// <summary>
+	/// コンポーネントを追加する
+	/// </summary>
+	/// <param name="_component">追加するコンポーネントのポインタ</param>
+	void AddComponent(Component* _component);
+	/// <summary>
+	/// コンポーネントを削除する
+	/// </summary>
+	/// <param name="_component">削除するコンポーネントのポインタ</param>
+	void RemoveComponent(Component* _component);
+
 protected:
 	State mState;          // 各自のアクターの状態
 
@@ -57,9 +68,10 @@ protected:
 	int mModel;            // アクターモデルデータ
 
 private:
-	SceneBase::Scene mDirthplaceScene;  // 各自のアクターを生成したシーン
-	Tag mTag;                           // 各自のアクターが持つタグ
+	SceneBase::Scene mDirthplaceScene;      // 各自のアクターを生成したシーン
+	Tag mTag;                               // 各自のアクターが持つタグ
 
+	std::vector<Component*>mComponents; //アタッチされているコンポーネント
 public:  // ゲッター、セッター
 	// アクターが生成された時のシーンを取得
 	SceneBase::Scene GetScene()const { return mDirthplaceScene; }
