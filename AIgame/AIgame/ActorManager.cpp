@@ -47,23 +47,12 @@ void ActorManager::AddActor(ActorBase* _actor)
 // @@@ 後で見直したい
 void ActorManager::DeleteActor()
 {
-	// 消すアクターを判別
-	std::vector<ActorBase*> deleteActors;
-	for (auto actor : mManager->mActors)
+	// 現在格納しているActorを全て消し、コンテナを空にする
+	for (auto Actor : mManager->mActors)
 	{
-		// このアクターが生成されたシーンと現在のシーンが異なれば
-		// カメラは消さない
-		if (actor->GetScene() != SceneBase::mIsScene &&
-			actor->GetTag() != ActorBase::Tag::eCamera)
-		{
-			deleteActors.emplace_back(actor);
-		}
+		delete Actor;
 	}
-	// アクターを消す(mActorsから削除される)
-	for (auto actor : deleteActors)
-	{
-		delete actor;
-	}
+	mManager->mActors.clear();
 }
 
 void ActorManager::UpdateActor(float _deltaTime)
@@ -100,6 +89,21 @@ void ActorManager::UpdateActor(float _deltaTime)
 	for (auto actor : deadActors)
 	{
 		delete actor;
+
+		for (auto it = mManager->mActors.begin(); it != mManager->mActors.end();)
+		{
+			// 条件一致した要素を削除する
+			if (*it == actor)
+			{
+				it = mManager->mActors.erase(it);  // 削除された要素の次を指すイテレータが返される。
+				break;
+			}
+			// 要素削除をしない場合に、イテレータを進める
+			else
+			{
+				++it;
+			}
+		}
 	}
 }
 

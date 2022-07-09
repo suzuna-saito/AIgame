@@ -7,7 +7,7 @@ Game::Game()
 	, MZbitNum(24)
 	, mIsRunningFlag(true)
 	, mNowScene(nullptr)
-	, mTmpScene(nullptr)
+	, mReturnSceneTag(SceneBase::mIsSceneTag)
 	, mFps(nullptr)
 {
 }
@@ -43,19 +43,19 @@ void Game::GameLoop()
 	// ゲーム続行フラグがたってたら
 	while (mIsRunningFlag)
 	{
-		ProcessInput();                  // 入力関連の処理
+		ProcessInput();                        // 入力関連の処理
 
-		mTmpScene = mNowScene->Update(); // 現在のシーンの更新処理
+		mReturnSceneTag = mNowScene->Update(); // 現在のシーンの更新処理
 
-		// シーンの切り替えが発生したら
-		if (mTmpScene != mNowScene)
+		// シーンタグのの切り替えが発生したら
+		if (mReturnSceneTag != SceneBase::mIsSceneTag)
 		{
-			delete mNowScene;            // 現在のシーンの解放
-			mNowScene = mTmpScene;       // 現在実行中のシーンの切り替え
+			delete mNowScene;                       // 現在のシーンの解放
 
-			UIManager::DeleteUI();       // いらないUIを削除する
-			ActorManager::DeleteActor(); // いらないアクターを削除する
+			UIManager::DeleteUI();                  // UIを削除する
+			ActorManager::DeleteActor();            // アクターを削除する
 
+			NewScene();                             // 新しいシーンを生成
 			continue;
 		}
 
@@ -77,6 +77,25 @@ void Game::Termination()
 
 	// DXライブラリの後始末
 	DxLib_End();
+}
+
+void Game::NewScene()
+{
+	// 返り値で返ってきたタグがタイトルだったら
+	if (mReturnSceneTag == SceneBase::Scene::eTitle)
+	{
+		mNowScene = new Title();   // タイトルを生成
+	}
+	// 返り値で返ってきたタグがプレイだったら
+	else if (mReturnSceneTag == SceneBase::Scene::ePlay)
+	{
+		mNowScene = new Play();    // プレイを生成
+	}
+	// 返り値で返ってきたタグがリザルトだったら
+	else if (mReturnSceneTag == SceneBase::Scene::eResult)
+	{
+		mNowScene = new Result();  // リザルトを生成
+	}
 }
 
 void Game::ProcessInput()

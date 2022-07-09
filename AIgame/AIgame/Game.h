@@ -19,6 +19,8 @@ public:
 	// 終了処理
 	void Termination();
 private:
+	// mNextSceneTagを参考に新しいシーンを生成する
+	void NewScene();
 	// 入力関連の処理
 	void ProcessInput();
 	// ゲームの更新処理
@@ -33,10 +35,10 @@ private:
 
 	bool mIsRunningFlag;    // ゲームを続行するかどうか
 
-	class SceneBase* mNowScene;   // 現在のシーン
-	class SceneBase* mTmpScene;   // ひとつ前のシーン
+	class SceneBase* mNowScene;        // 現在のシーン
+	SceneBase::Scene mReturnSceneTag;  // updateで返ってきたシーンのタグ
 
-	class FPS* mFps;              // FPS計測クラス
+	class FPS* mFps;                   // FPS計測クラス
 
 public: // ゲッター、セッター
 	// 最初のシーンをセット

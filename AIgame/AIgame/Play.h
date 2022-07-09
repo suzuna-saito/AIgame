@@ -16,7 +16,7 @@ public:
 	/// シーンの更新処理
 	/// </summary>
 	/// <returns>現在のシーンのポインタ</returns>
-	SceneBase* Update()override;
+	SceneBase::Scene Update()override;
 
 private:
 };

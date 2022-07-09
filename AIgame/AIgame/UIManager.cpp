@@ -37,22 +37,12 @@ void UIManager::AddUI(UIBase* _ui)
 
 void UIManager::DeleteUI()
 {
-	// ‘S‚Ä‚ÌUI‚ðmPendingActors‚ÉˆêŽž“I‚É•ÛŠÇ
-	mManager->mPendingUI = mManager->mUI;
-
-	// UI‚ðŠi”[‚·‚éƒRƒ“ƒeƒi‚ð‹ó‚É‚·‚é
-	mManager->mUI.clear();
-
-	// Ši”[‚·‚éUI‚ð”»•Ê
-	for (auto UI : mManager->mPendingUI)
+	// Œ»ÝŠi”[‚µ‚Ä‚¢‚éUI‚ð‘S‚ÄÁ‚µAƒRƒ“ƒeƒi‚ð‹ó‚É‚·‚é
+	for (auto UI : mManager->mUI)
 	{
-		if (UI->GetDirthplaceScene() == SceneBase::mIsScene) // ‚±‚ÌUI‚ª¶¬‚³‚ê‚½ƒV[ƒ“‚ÆŒ»Ý‚ÌƒV[ƒ“‚ªˆê‚¾‚Á‚½‚ç
-		{
-			mManager->mUI.emplace_back(UI);                  // ‚±‚ÌUI‚ðŠi”[
-		}
+		delete UI;
 	}
-
-	mManager->mPendingUI.clear();
+	mManager->mUI.clear();
 }
 
 void UIManager::UpdateUI(float _deltaTime)

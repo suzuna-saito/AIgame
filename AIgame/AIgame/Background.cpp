@@ -1,15 +1,15 @@
 #include "pch.h"
 
 Background::Background()
-	: UIBase(SceneBase::mIsScene)
+	: UIBase(SceneBase::mIsSceneTag)
 {
 	// シーンによって使うファイルを変える
 	const char* file = nullptr;
-	if (SceneBase::mIsScene == SceneBase::Scene::eTitle)      // タイトル
+	if (SceneBase::mIsSceneTag == SceneBase::Scene::eTitle)      // タイトル
 	{
 		file = "data/images/TitleScene/Char.png";
 	}
-	else if(SceneBase::mIsScene == SceneBase::Scene::eResult) // リザルト
+	else if(SceneBase::mIsSceneTag == SceneBase::Scene::eResult) // リザルト
 	{
 		file = "data/images/ResultScene/Result.png";
 	}

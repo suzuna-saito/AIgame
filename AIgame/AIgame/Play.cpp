@@ -26,15 +26,15 @@ void Play::Input()
 	}
 }
 
-SceneBase* Play::Update()
+SceneBase::Scene Play::Update()
 {
 	// シーン遷移条件(エンターを押すと遷移（仮）)
 	if (mSceneTransitionFlag)
 	{
 		// 条件を満たしていたらリザルトシーンを生成してそのポインタを返す
-		return new Result();
+		return Scene::eResult;
 	}
 
 	// シーン遷移条件を満たしていなかったら今のポインタを返す
-	return this;
+	return mIsSceneTag;
 }

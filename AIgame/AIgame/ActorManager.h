@@ -39,7 +39,7 @@ private:
 	static ActorManager* mManager;          // ActorManagerの実体（アプリ内に唯一存在）
 
 	std::vector<ActorBase*>mActors;         // 全てのアクターを格納するコンテナ
-	std::vector<ActorBase*>mPendingActors;  // Update中に追加されたアクターを一時的に保存するコンテナ
+	std::vector<ActorBase*>mPendingActors;  // アクターを一時的に保存するコンテナ
 
 	bool mUpdatingActor;                    // Update中かどうか
 };

@@ -1,7 +1,7 @@
 #pragma once
 
 /* カメラ(1つ)関連のクラス */
-class Camera :public ActorBase
+class Camera
 {
 public:
 	// コンストラクタ
@@ -28,6 +28,7 @@ private:
 	const float MNear;       // カメラの手前クリップ距離
 	const float MFar;        // カメラの奥クリップ距離
 
+	VECTOR mPos;             // カメラの位置
 	VECTOR mPrevious;        // カメラ位置を保存する
 	VECTOR mViewpoint;       // 注視点
 };

@@ -53,7 +53,7 @@ void Image::UseImages(ImageType _type, const char* _file)
 	mImage->mFile[_type] = _file;
 
 	// この画像ファイルと生成した時のシーンを関連付ける
-	mImage->mGeneratedScene.insert({ _file,SceneBase::mIsScene });
+	mImage->mGeneratedScene.insert({ _file,SceneBase::mIsSceneTag });
 }
 
 void Image::UnLoad()
@@ -69,7 +69,7 @@ void Image::UnLoad()
 	// 現在のシーンで使う画像の種類のみmUseTypesに格納
 	for (auto type : mUseTypes)
 	{
-		if (mGeneratedScene[mFile[type]] == SceneBase::mIsScene)
+		if (mGeneratedScene[mFile[type]] == SceneBase::mIsSceneTag)
 		{
 			mPendingType.emplace_back(type);  // 使う画像のタイプをmPendingTypeに格納
 		}

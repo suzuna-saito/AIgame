@@ -20,15 +20,15 @@ void Result::Input()
 	}
 }
 
-SceneBase* Result::Update()
+SceneBase::Scene Result::Update()
 {
 	// 遷移フラグが上がっていたら
 	if (mSceneTransitionFlag)
 	{
 		// 条件を満たしていたらタイトルシーンを生成してそのポインタを返す
-		return new Title();
+		return Scene::eTitle;
 	}
 
 	// シーン遷移条件を満たしていなかったら今のポインタを返す
-	return this;
+	return mIsSceneTag;
 }

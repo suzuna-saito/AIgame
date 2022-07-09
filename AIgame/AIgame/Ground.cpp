@@ -1,7 +1,7 @@
 #include "pch.h"
 
 Ground::Ground(const VECTOR& _pos)
-	: ActorBase(SceneBase::mIsScene,ActorBase::Tag::eGround)
+	: ActorBase(SceneBase::mIsSceneTag,ActorBase::Tag::eGround)
 {
 	mModel = MV1LoadModel("Data/Models/Ground/Ground.mv1");
 

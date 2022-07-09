@@ -40,14 +40,17 @@
     <Filter Include="Actor\Ground">
       <UniqueIdentifier>{6807e89b-ac87-404a-8173-4ccb9d7ad2cd}</UniqueIdentifier>
     </Filter>
-    <Filter Include="Actor\Camera">
-      <UniqueIdentifier>{c42c8bd2-7e66-46a0-affb-0bacf38000df}</UniqueIdentifier>
-    </Filter>
     <Filter Include="System\RapidJson">
       <UniqueIdentifier>{d3c5b949-9772-4402-957b-7645f47d5da3}</UniqueIdentifier>
     </Filter>
     <Filter Include="Actor\Player">
       <UniqueIdentifier>{336d5a35-97a0-468e-826b-231ea4a8130f}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Components">
+      <UniqueIdentifier>{ebd89bfa-1593-4a00-9e50-396c8b30a388}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Camera">
+      <UniqueIdentifier>{c42c8bd2-7e66-46a0-affb-0bacf38000df}</UniqueIdentifier>
     </Filter>
   </ItemGroup>
   <ItemGroup>
@@ -97,7 +100,7 @@
       <Filter>Map</Filter>
     </ClCompile>
     <ClCompile Include="Camera.cpp">
-      <Filter>Actor\Camera</Filter>
+      <Filter>Camera</Filter>
     </ClCompile>
     <ClCompile Include="RapidJson.cpp">
       <Filter>System\RapidJson</Filter>
@@ -152,7 +155,7 @@
       <Filter>Map</Filter>
     </ClInclude>
     <ClInclude Include="Camera.h">
-      <Filter>Actor\Camera</Filter>
+      <Filter>Camera</Filter>
     </ClInclude>
     <ClInclude Include="RapidJson.h">
       <Filter>System\RapidJson</Filter>

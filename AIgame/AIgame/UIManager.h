@@ -39,5 +39,4 @@ private:
 	static UIManager* mManager;      // UIManagerの実体（アプリ内に唯一存在）
 
 	std::vector<UIBase*>mUI;         // すべてのUIを格納するコンテナ
-	std::vector<UIBase*>mPendingUI;  // 一時的にUIを保存するコンテナ
 };

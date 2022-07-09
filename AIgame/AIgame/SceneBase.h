@@ -27,10 +27,10 @@ public:
 	/// <summary>
 	/// シーンの更新処理
 	/// </summary>
-	/// <returns>現在のシーンのポインタ</returns>
-	virtual SceneBase* Update() = 0;
+	/// <returns>次に生成するシーンのタグ</returns>
+	virtual SceneBase::Scene Update() = 0;
 
-	static Scene mIsScene;    // 現在のシーンタグ
+	static Scene mIsSceneTag;    // 現在のシーンタグ
 
 protected:
 	class Map* mMapCreate;    // マップ生成

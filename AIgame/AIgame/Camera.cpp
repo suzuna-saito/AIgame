@@ -4,8 +4,7 @@
 Camera* Camera::mCamera = nullptr;
 
 Camera::Camera()
-	: ActorBase(SceneBase::Scene::eInit, Tag::eCamera)
-	, MNear(20.0f)
+	: MNear(20.0f)
 	, MFar(10000.0f)
 	, mViewpoint(VGet(-450.0f, 0.0f, 450.0f))
 {

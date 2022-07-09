@@ -1,7 +1,7 @@
 #include "pch.h"
 
 Player::Player(const VECTOR& _pos)
-	: ActorBase(SceneBase::mIsScene, ActorBase::Tag::ePlayer)
+	: ActorBase(SceneBase::mIsSceneTag, ActorBase::Tag::ePlayer)
 {
 	mModel = MV1LoadModel("Data/Models/Ground/RedGround.mv1");
 	// プレイヤーのポジションを設定

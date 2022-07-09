@@ -14,7 +14,7 @@ bool Map::OpenFile()
 {
 	// @@@ test
 	// ÉfÅ[É^ÇÃì«Ç›çûÇ›
-	if (!ReadTiledJson(mGroundMapDate, "Data/Config/test.json", "Ground"))
+	if (!ReadTiledJson(mGroundMapDate, "Data/Config/Play.json", "Ground"))
 	{
 		printf("don't have Layer/test\n");
 		return true;
@@ -23,7 +23,7 @@ bool Map::OpenFile()
 	mMapSize.x = mGroundMapDate[0].size();
 	mMapSize.y = mGroundMapDate.size();
 
-	if (!ReadTiledJson(mPlayerMapDate, "Data/Config/test.json", "Player"))
+	if (!ReadTiledJson(mPlayerMapDate, "Data/Config/Play.json", "Player"))
 	{
 		printf("don't have Layer/test\n");
 		return true;

@@ -1,11 +1,12 @@
 #include "pch.h"
 
 // 現在のシーンの初期化
-SceneBase::Scene SceneBase::mIsScene = Scene::eInit;
+SceneBase::Scene SceneBase::mIsSceneTag = Scene::eInit;
 
 SceneBase::SceneBase(Scene _nowScene)
 	: mSceneTransitionFlag(false)
+	, mMapCreate(nullptr)
 {
 	// 現在のシーンタグを更新
-	mIsScene = _nowScene;
+	mIsSceneTag = _nowScene;
 }
